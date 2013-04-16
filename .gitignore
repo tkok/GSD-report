@@ -30,4 +30,5 @@
 *.vrb
 *.xdy
 *.tdo
-.DS_Store
+*.DS_Store
+report.pdf
