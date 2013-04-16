@@ -36,3 +36,5 @@ report.pdf
 documents/report.pdf
 
 documents/.DS_Store
+
+*.pdf
