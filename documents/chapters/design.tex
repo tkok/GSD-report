@@ -5,7 +5,23 @@ During our brainstorm sessions it quickly became clear that we needed a policy e
 A policy in our project is defined as a set of rules that can be activated in a given setting.
 
 \paragraph{Rules}
-It's in the rules that the power of our engine lies. We have striven to create a model for rules that are flexible and yet simple. A rule is defined as a "`IF ELSE"' statement, that can contain expressions that supports the logical operators of AND, OR and the relational operators LESS THAN, GREATER THAN, EQUALS, NOT. 
+It's in the rules that the power of our engine lies. We have striven to create a model for rules that are flexible and yet simple. A rule is defined as a "`IF THEN ELSE"' statement, that can contain expressions that supports the logical operators of AND, OR and the relational operators LESS THAN, GREATER THAN, EQUALS, NOT. 
+
+Using this setup allows us to construct rules in a matter similar to other DSL languages such as SQL. Below is an example from a rule we can construct with our engine:
+\\
+\\
+\\
+\\
+\\
+\begin{lstlisting}[language=json,firstnumber=1]
+{"statements":[{"type":"IfStatement","data":
+ {"conditionalExpressions":[{"prefixOperator":"AND","aValue":
+	{"type":"IntValue","data":{"theValue":10}},"operator":"EQUALS","sensorId":"ROOM1.TEMPERATURE"}],
+	"thenStatements":[{"type":"SetStatement","data":{"aValue":
+	{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.HEATER"}}],
+	"elseStatements":[{"type":"SetStatement","data":
+	{"aValue":{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.BLINDS"}}]}}]}
+\end{lstlisting}
 
 \paragraph{High level design}
 
