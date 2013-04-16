@@ -14,14 +14,22 @@ Using this setup allows us to construct rules in a matter similar to other DSL l
 \\
 \\
 \begin{lstlisting}[language=json,firstnumber=1]
-{"statements":[{"type":"IfStatement","data":
- {"conditionalExpressions":[{"prefixOperator":"AND","aValue":
+{"statements":[
+
+// Define IF statement
+{"type":"IfStatement","data": {"conditionalExpressions":[{"prefixOperator":"AND","aValue":
 	{"type":"IntValue","data":{"theValue":10}},"operator":"EQUALS","sensorId":"ROOM1.TEMPERATURE"}],
+
+// Define THEN statement	
 	"thenStatements":[{"type":"SetStatement","data":{"aValue":
 	{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.HEATER"}}],
+
+// Define ELSE statement
 	"elseStatements":[{"type":"SetStatement","data":
 	{"aValue":{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.BLINDS"}}]}}]}
 \end{lstlisting}
+
+What happens in this example is ...
 
 \paragraph{High level design}
 
