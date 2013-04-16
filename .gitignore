@@ -32,9 +32,3 @@
 *.tdo
 *.DS_Store
 *.pdf
-report.pdf
-documents/report.pdf
-
-documents/.DS_Store
-
-*.pdf
