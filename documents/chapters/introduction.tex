@@ -18,5 +18,22 @@ In this paper we will;
 \end{enumerate}
 
 \section{Context}
+Modern buildings get ever more complex - from the type of materials being used, to the services and infrastructure they provide. Our focus in this paper is building automation through the use of governing policies, and therefore economically speaking, relates to the buildings running costs. Today the cost of resources such as gas, diesel and electricity have been generally climbing for the last many years, making it still more important to use them with care. Another cost related to the usage of energy and natural resources are the taxes which also are on the rise. However, economy is not the only factor for saving the planets resources. Today it is considered so good PR to 'go green' that some companies build a virtual presence for for this subject alone~\cite{green-google}~\cite{green-facebook}~\cite{green-microsoft}.
+
+A part of the whole 'go green' concept is to control your energy and natural resource usage. Many companies have many buildings that are either heated or cooled (or both), have lighting, appliances and server rooms to name a few. They may already be equipped intelligent heating systems, HVAC systems and AC's but many of these systems are proprietary and impossible - or very hard - to integrate with. As mentioned earlier this project integrates into a Building Simulator - which makes our task extremely simple compared to real work applications. We do not have to worry about actual sensor and actuator hardware, wiring, costs, communication protocols, existing protocols, coverage of wireless communication signals and so forth.
+
+We assume the view that the Building Simulator \textit{is} the building. Our system is therefore \textit{open} compared to proprietary, since all it takes to access, for example, the temperature in a room is a http get operation with the building id and sensor in question. In real life settings a janitor might need to go to a room physically to check it's temperature, and adjust the heater in that room, several times a day to achieve and maintain the desired temperature. Our governing policies makes it up for a building janitor. Human staff starts out by defining the policies that the building needs. Then we can imagine the virtual janitor, issuing http get operations all day, to check the sensors mentioned in those policies. The policies consists of sensor-conditional behavior that will adjust the actuators (by issuing http post commands with sensor id and the desired value) continuously.
 
 \section{Problem}
+The task of controlling the buildings likewise gets progressively more complex - especially if that control should be optimized in regards to both economic and human comfort. What good is a highly advanced building if the task of controlling it is just as complex?
+
+We seek to design a system where FM can design the policies they believe is needed, based on their experience with the building. We do not expect FM to be IT experts, but we do expect them to be able to use a Internet browser and be familiar with the sensor id's used in the building
+
+Our main consideration in this paper is; \textit{providing a web-based infrastructure to visually define, manage and monitor the scheduling of governing policies for building subsystems.}
+
+Attached to the above, we further want to point out these challenges;
+\begin{enumerate}
+	\item The rating of proposed solution's usability
+	\item Policy time control and manual override
+	\item The use of complex policy datastructures on both frontend and backend
+\end{enumerate}
