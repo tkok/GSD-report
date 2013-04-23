@@ -21,14 +21,14 @@ In this paper we will;
 	\item document the collaborative project between the IT University of Copenhagen, Denmark and Strathmore University, Nairobi Kenya.
 \end{enumerate}
 
-\section{Context}
+\section{Context} \label{sec:context}
 Modern buildings get ever more complex - from the type of materials being used, to the services and infrastructure they provide. Our focus in this paper is building automation through the use of governing policies, and therefore economically speaking, relates to the buildings running costs. Today the cost of resources such as gas, diesel and electricity have been generally climbing for the last many years, making it still more important to use them with care. Another cost related to the usage of energy and natural resources are the taxes which also are on the rise. However, economy is not the only factor for saving the planets resources. Today it is considered so good PR to 'go green' that some companies build a virtual presence for this subject alone~\cite{green-google}~\cite{green-facebook}~\cite{green-microsoft}.
 
 A part of the whole 'go green' concept is to control your energy and natural resource usage. Many companies have many buildings that are either heated or cooled (or both), have lighting, appliances and server rooms to name a few. They may already be equipped intelligent heating systems, HVAC systems and AC's but many of these systems are typically proprietary and impossible - or very hard - to integrate with. As mentioned earlier this project integrates into a Building Simulator - which makes our task extremely simple compared to real work applications. We do not have to worry about actual sensor and actuator hardware, wiring, costs, communication protocols, existing protocols, coverage of wireless communication signals and so forth.
 
 We assume the view that the Building Simulator \textit{is} the building. Our system is therefore \textit{open} compared to proprietary, since all it takes to access, for example, the temperature in a room is a http get operation with the building id and sensor in question. In real life settings a janitor might need to go to a room physically to check it's temperature, and adjust the heater in that room, several times a day to achieve and maintain the desired temperature. Our governing policies makes it up for a building janitor. Human staff starts out by defining the policies that the building needs. Then we can imagine the virtual janitor, issuing http get operations all day, to check the sensors mentioned in those policies. The policies consists of sensor-conditional behaviour that will adjust the actuators (by issuing http post commands with sensor id and the desired value) continuously.
 
-\section{Problem}
+\section{Problem} \label{sec:problem}
 The task of controlling the buildings likewise gets progressively more complex - especially if that control should be optimized in regards to both economic and human comfort. What good is a highly advanced building if the task of controlling it is just as complex?
 
 We seek to design a system where FM can design the policies they believe is needed, based on their experience with the building. We do not expect FM to be IT experts, but we do expect them to be able to use a Internet browser and be familiar with the sensor id's used in the building
@@ -42,14 +42,14 @@ Attached to the above, we further want to point out these challenges;
 	\item The use of complex policy datastructures on both frontend and backend
 \end{enumerate}
 
-\section{Learning Goals}
+\section{Learning Goals} \label{sec:learninggoals}
 The project in itself consists of two widely different aspects, namely Global software development and the policy engine. The new aspect in the project life cycle is for us to collaborate with team members distributed in different continents and countries, with many differences such as cultural and temporal.
 
 These two aspects are also the ones where the main learning goals are derived from. In this regard the goals can be grouped into two different parts. The first being how to collaborate across different countries and the challenges that this would cause, including how to manage the team, how to communicate, how to increase performance and the likes. The secondary being how we can solve the technical project and deliver a working prototype of a policy engine, including creating the domain model, data structure, creating the actual policy engine in a object oriented-manner and tying this together with the visual and user friendly frontend.
 
-One could summarize the learning goals to be: 1. How to work together in a distributed team and reflect on this and 2. How to develop a policy engine that conforms to the stated requirements.
+One could summarize the learning goals to be: 1. How to work together in a distributed team and reflect on this and 2. How to develop a policy engine that conforms to the stated requirements see \nameref{sec:requirements}
 
-\section{Requirements}
+\section{Requirements} \label{sec:requirements}
 The overall requirements to the project are in a very open-ended manner, with only a few descriptive requirements to the product and process. These are:
 
 \textbf{START COPY/PASTE FROM https://gsd.wikit.itu.dk/Policy+Engine}
