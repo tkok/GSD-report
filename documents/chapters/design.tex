@@ -1,4 +1,4 @@
-\section{Design}
+%\section{Design}
 This chapter, is dedicated to the high-level design of the presented system. In this chapter we will explain the different concepts used in our policy engine. 
 
 During our brainstorm sessions it quickly became clear that we needed a policy engine that was flexible. With inspiration from other building management systems (see related work) and looking at the web service we had to communicate with, we came up with the concept of policies that consist of rules.
@@ -20,21 +20,29 @@ Using this setup allows us to construct rules in a matter similar to other DSL l
 \\
 \\
 \\
-\begin{lstlisting}[language=json,firstnumber=1]
-{"statements":[
+%\begin{lstlisting}[language=json,firstnumber=1]
+%{"statements":[
+%
+%// Define IF statement
+%{"type":"IfStatement","data": {"conditionalExpressions":[{"prefixOperator":"AND","aValue":
+	%{"type":"IntValue","data":{"theValue":10}},"operator":"EQUALS","sensorId":"ROOM1.TEMPERATURE"}],
+%
+%// Define THEN statement	
+	%"thenStatements":[{"type":"SetStatement","data":{"aValue":
+	%{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.HEATER"}}],
+%
+%// Define ELSE statement
+	%"elseStatements":[{"type":"SetStatement","data":
+	%{"aValue":{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.BLINDS"}}]}}]}
+%\end{lstlisting}
 
-// Define IF statement
-{"type":"IfStatement","data": {"conditionalExpressions":[{"prefixOperator":"AND","aValue":
-	{"type":"IntValue","data":{"theValue":10}},"operator":"EQUALS","sensorId":"ROOM1.TEMPERATURE"}],
 
-// Define THEN statement	
-	"thenStatements":[{"type":"SetStatement","data":{"aValue":
-	{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.HEATER"}}],
+\begin{figure}[t]
+%\lstinputlisting[linerange={1-13}]{code/example.json}
+\input{code/example.json}
+\caption{JSON example\label{json-example}}
+\end{figure}
 
-// Define ELSE statement
-	"elseStatements":[{"type":"SetStatement","data":
-	{"aValue":{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.BLINDS"}}]}}]}
-\end{lstlisting}
 
 What happens in this example is ...
 

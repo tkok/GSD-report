@@ -1,0 +1,13 @@
+{"statements":[
+
+// Define IF statement
+{"type":"IfStatement","data": {"conditionalExpressions":[{"prefixOperator":"AND","aValue":
+	{"type":"IntValue","data":{"theValue":10}},"operator":"EQUALS","sensorId":"ROOM1.TEMPERATURE"}],
+
+// Define THEN statement	
+	"thenStatements":[{"type":"SetStatement","data":{"aValue":
+	{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.HEATER"}}],
+
+// Define ELSE statement
+	"elseStatements":[{"type":"SetStatement","data":
+	{"aValue":{"type":"BooleanValue","data":{"theValue":true}},"sensorID":"ROOM1.BLINDS"}}]}}]}
