@@ -7,8 +7,6 @@ Merriam-Webster defines \textit{policy} as; "A definite course or method of acti
 
 We have defined a policy as a collection of conditional statements operating on sensors and actuators residing in the building simulator. The policy also has a start time and a stop time. It is also possible to de-activate a policy completely - without deleting it entirely.
 
-A statement can either be a SetStatement or an IfStatement. The SetStatement sets an value in the simulator (in effect it is an actuator). The backend implementation allows nested If-statements, making the policies both flexible and simple (XXX how can we claim that?). An If-statement can contain multiple expressions that all are being anded when evaluated. If the user wants to make an If-statement with or'ed expressions, she will have to use a nested if. The optimal solution to this would have been to make a safe left-recursive model. We did not have enough time for this, but we will elaborate further on this subject in the discussion (XXX remember to elaborate). 
-
 \section{Architecture}
 The system that we have designed consists of four overall parts;
 \begin{itemize}
@@ -25,6 +23,8 @@ Figure \ref{fig:design-system-architecture} illustrates the relationship of the 
 \includegraphics[scale=.5]{chapters/design-system-architecture.png}
 \caption{The PolicyEngine system architecture.}\label{fig:design-system-architecture}}
 \end{figure}
+
+A statement can either be a SetStatement or an IfStatement. The SetStatement sets an value in the simulator (in effect it is an actuator). The backend implementation allows nested If-statements. If-then-else statements have been around since the early versions of Basic, and is an established way of achieving conditional computer logic. Even though the intended audience of our system is not considered computer experts, the if-then-else concept is easy to understand and catches on fast when interviewing people. An If-statement can contain multiple expressions that all are being anded when evaluated. If the user wants to make an If-statement with or'ed expressions, she will have to use a nested if. This raises the complexity and we do not consider this to be an optimal solution. The optimal solution in this case would have been to make a proper expression language that is left recursion safe, for example based on~\cite{left-recursion}. This would also solve our lacking or's in the condition of the if-statements. Unfortunately we did not realize this until around two thirds into the development. Since our jQuery~\cite{jquery} parsing on the frontend naturally is strongly bound to domain classes on the backend (due to JSon serialization - using Gson~\cite{gson}), any big changes at that point would affect both the backend and the frontend. We realized then that it would be too time consuming to change the system. We therefore leave it up to future work. We will elaborate further on this subject in the discussion (XXX remember to elaborate). 
 
 \subsection{The management website}
 The management website resides is based in a small collection of html pages that relies heavily on JQuery. The building policy administrator opens the main page in a browser, and gets an overview of all the policies and can perform CRUD operations on them.
