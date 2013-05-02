@@ -60,7 +60,7 @@ This design was based on several iterations of group discussions. Everyone wante
 
 The first couple of design proposals from some team members were based on SQL integration directly into the database that the building simulator uses. This direct integration could be argued as being a good, although strongly coupled integration. Also, it did not feel like a real world scenario (which we assume is one of the points of this course) if we could access the database directly in this way. Traditionally building systems tend to be closed source proprietary systems with few, if any, integration point (XXX reference to for example CTS systems).
 
-Later design proposal revolved around the idea of having more or less mirrored sensor data in a separate database. Data should be transferred at regular intervals, and the policies should be executed against the copy. This turned out to be a too unsophisticated solution - and the problem to decide which sensor data remained. Finally we arrived at the rest api integration for fetching and setting values, and our own database to hold the policies and their time information.
+Later design proposal revolved around the idea of having more or less mirrored sensor data in a separate database. Data should be transferred at regular intervals, and the policies should be executed against the copy. This turned out to be a too unsophisticated solution - and the problem to decide which sensor data to mirror remained. Finally we arrived at the rest api integration for fetching and setting values, and our own database to hold the policies and their time information.
 
 \subsection{The database}
 The database used is a mySQL 5.5.29 and used for storing the policies. At the moment we only use one table containing all the policies.
