@@ -1,11 +1,15 @@
-This chapter, is dedicated to the high-level design of the presented system. In this chapter we will explain the different concepts used in our policy engine. 
+During our brainstorm sessions it quickly became clear that we needed a policy engine that was flexible. This we deducted from the cases discussed both amongst team members, but also based on several interviews with danish companies that were performed by a team member (see XXX?). With inspiration from other building management systems (see \nameref{chapter:relatedWork}) and looking at the web service we had to communicate with, we came up with the concept of policies that consist of to types of overall statements; \textit{if-statements} and \textit{set statements}. If-statements works as if-statements in many popular GPL's, with a condition consisting of expressions, a then-clause and an else-clause. Set statements work by setting a value on the building simulator (in effect it acts as an actuator).
 
-During our brainstorm sessions it quickly became clear that we needed a policy engine that was flexible. This we deducted from the cases discussed both amongst team members, but also based on several interviews with danish companies that were performed by a team member (see XXX?). With inspiration from other building management systems (see \nameref{chapter:relatedWork}) and looking at the web service we had to communicate with, we came up with the concept of policies that consist of to types of overall statements; \textit{if-statements} and \textit{set statements}. If-statements works as if-statements in many popular GPL's, with a condition consisting of expressions, a then-clause and an else-clause.
+%%%% Kasper: Tried to address this --> ASLAK: Needs further explanation!
 
 \section{The policy expression language}
 Merriam-Webster defines \textit{policy} as; "A definite course or method of action selected from among alternatives and in light of given conditions to guide and determine present and future decisions."
 
 We have defined a policy as a collection of conditional statements operating on sensors and actuators residing in the building simulator. The policy also has a start time and a stop time. It is also possible to de-activate a policy completely - without deleting it entirely.
+
+%%%% Kasper: Need to work on this --> ASLAK: Collection. How is the statements organized? Booleans? List?
+
+A statement can either be a SetStatement or an IfStatement. The SetStatement sets an value in the simulator (in effect it is an actuator). The backend implementation allows nested If-statements, making the policies both flexible and simple (XXX how can we claim that?). An If-statement can contain multiple expressions that all are being anded when evaluated. If the user wants to make an If-statement with or'ed expressions, she will have to use a nested if. The optimal solution to this would have been to make a safe left-recursive model. We did not have enough time for this, but we will elaborate further on this subject in the discussion (XXX remember to elaborate). 
 
 \section{Architecture}
 The system that we have designed consists of four overall parts;
@@ -30,6 +34,8 @@ A statement can either be a SetStatement or an IfStatement. The SetStatement set
 The management website resides is based in a small collection of html pages that relies heavily on JQuery. The building policy administrator opens the main page in a browser, and gets an overview of all the policies and can perform CRUD operations on them.
 
 During the design phase for the GUI of the management website, we used Photoshop sketches that we mailed and transferred via Skype to each other. One from the kenyan team also assisted in this phase. After discussing how to best present policies to the building policy administrator in the time we had available, we choose an indented page layout when presenting the policies. By choosing this type of GUI, as opposed to a more tabular view on the if's, we elected a GUI that is flexible enough to extend to a recursive rendering which clearly matters a greatly when then-clauses can contain other if-statements that again contain then-clauses and so forth. For implementation see Section XXX.
+
+%%%% Kasper: Already addressed this by a new model --> ASLAK: I'm not convinced that this kind of diagram is ideal for this purpose.
 
 \subsection{The policy engine}
 The policy engine consists of a servlet and domain classes for the expression language needed to build policies. The servlet is the core of our policy engine. It has three main objectives;
@@ -63,5 +69,5 @@ The database used is a mySQL 5.5.29 and used for storing the policies. At the mo
 The building simulator provided in the course has not been changed or modified in any way.
 
 \subsection{Limitations}
-
 ... Alternatives?
+%%%% Kasper: Need to work on this --> Aslak: Full embedded scripting language. Wiki: List of JVM Languages (assuming you are using Java).

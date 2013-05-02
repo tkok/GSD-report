@@ -17,15 +17,16 @@ We mapped all our ideas and prioritised them, and made a selection of ideas, whi
 The selected ideas included that:
 \begin{itemize}
 \item Users should be able to add, delete and modify policies.
-\item Users should be able to use complex operators in policies.
+\item Users should be able to use complex operators in policies, e.g. higher than, lower than, equal to etc.
 \item Users should be able to create nested rules in policies.
-\item Users should be able to use wildcards in a policy (effecting for instance an entire floor without the need to specify the rooms that belong to the chosen floor).
+%%%% Aslak: Remember to describe how these wildcards are implemented. In the proper section.
+\item Users should be able to use wildcards in a policy, e.g. effecting for instance an entire floor without the need to specify the rooms that belong to the chosen floor.
 \item Users should be able to save policies and easily toggle an ON or OFF state.
 \item Users should be able to combine multiple sensors in a single policy.
 \end{itemize}
 
 
-The ideas were broken into three main front-end sites\footnote{Front-end "sites" are dynamic HTML website.}, from where the user can control the policy engine and overlook its operation.
+The ideas were broken into three main front-end pages\footnote{Front-end pages are dynamic HTML website.}, from where the user can control the policy engine and overlook its operation.
 
 The three mains are:
 \begin{enumerate}
@@ -37,7 +38,7 @@ The three mains are:
 
 \subsection{Usability}
 Seeing policies as rules for rooms in a building, with multiple sensors in each and every room, that can affect multiple actuators - not only in one room, but all of the rooms in a building: It leaves the user with a lot of selections. 
-This will, if not represented properly, complex the process of adding new policies.
+This will, if not represented properly, complicate the process of adding new policies.
 
 Following the principles of Steve Krug's "Don't Make Me Think: Common Sense Approach to the Web"\cite{Krug:2005:DMM:1051204}, the functionality of a website should always let users accomplish their intended tasks as easy and directly as possible.
 Throughout the development of the front-end sites we have thrived to do so.
@@ -56,9 +57,9 @@ Another approach towards usability was using web elements like: Selectors and Bu
 
 For a developer textual editing and console commands might be preferred, and may somewhat be quicker, while they know the inputs by heart. But the intended users of our policy engine, are most likely not developers or fans of typing in commands.
 Also it forces users to memorize the inputs, and makes controlling the policy engine less intuitive. Therefore the idea was discarded and visual elements was implemented instead.
+%%%% ASLAK: You should explain this as as layers of abstractions, e.g.:
+%% | Visual UI | Textual UI | <-Not implemented
+%% | Language |
+%% | Engine |
 
 As for a future version of the policy engine, both methods could be implemented to function in parallel, giving a user both choices, and also the capability of copy and paste policies quickly.
-
-
-\subsection{Technology Choices}
-Why Java, benefits? due to policy engine with object classes etc. Original plan to use PHP expected it to be simple to use Java classed to handle the policies.
