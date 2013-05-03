@@ -1,15 +1,14 @@
-During our brainstorm sessions it quickly became clear that we needed a policy engine that was flexible. This we deducted from the cases discussed both amongst team members, but also based on several interviews with danish companies that were performed by a team member (see XXX?). With inspiration from other building management systems (see \nameref{chapter:relatedWork}) and looking at the web service we had to communicate with, we came up with the concept of policies that consist of to types of overall statements; \textit{if-statements} and \textit{set statements}. If-statements works as if-statements in many popular GPL's, with a condition consisting of expressions, a then-clause and an else-clause. Set statements work by setting a value on the building simulator (in effect it acts as an actuator).
-
-%%%% Kasper: Tried to address this --> ASLAK: Needs further explanation!
+During our brainstorm sessions it quickly became clear that we needed a policy engine that was flexible. This we deducted from the cases discussed amongst team members. With inspiration from other building management systems (see \nameref{chapter:relatedWork}) and looking at the web service we had to communicate with, we came up with the concept of policies that consist of to types of overall statements; \textit{if-statements} and \textit{set statements}. If-statements works as if-statements in many popular GPL's, with a condition consisting of expressions, a then-clause and an else-clause. Set statements work by setting a value on the building simulator (in effect it acts as an actuator).
 
 \section{The policy expression language}
 Merriam-Webster defines \textit{policy} as; "A definite course or method of action selected from among alternatives and in light of given conditions to guide and determine present and future decisions."
 
-We have defined a policy as a collection of conditional statements operating on sensors and actuators residing in the building simulator. The policy also has a start time and a stop time. It is also possible to de-activate a policy completely - without deleting it entirely.
-
-%%%% Kasper: Need to work on this --> ASLAK: Collection. How is the statements organized? Booleans? List?
+We have defined a policy as a collection of statements operating on sensors and actuators residing in the building simulator. The policy also has a start time and a stop time. It is also possible to de-activate a policy completely - without deleting it entirely.
 
 A statement can either be a SetStatement or an IfStatement. The SetStatement sets an value in the simulator (in effect it is an actuator). The backend implementation allows nested If-statements, making the policies both flexible and simple (XXX how can we claim that?). An If-statement can contain multiple expressions that all are being anded when evaluated. If the user wants to make an If-statement with or'ed expressions, she will have to use a nested if. The optimal solution to this would have been to make a safe left-recursive model. We did not have enough time for this, but we will elaborate further on this subject in the discussion (XXX remember to elaborate). 
+
+%%%% Kasper: Done. Wrote a sentence on this --> ASLAK: Collection. How is the statements organized? Booleans? List?
+The statements are organized as a list. Each statement will be executed (set) or evaluated (if) in the order that they are persisted. Each if-statement has two lists that contain the statements belonging to the then-clause and the else-clause.
 
 \section{Architecture}
 The system that we have designed consists of four overall parts;
@@ -28,14 +27,16 @@ Figure \ref{fig:design-system-architecture} illustrates the relationship of the 
 \caption{The PolicyEngine system architecture.}\label{fig:design-system-architecture}}
 \end{figure}
 
-A statement can either be a SetStatement or an IfStatement. The SetStatement sets an value in the simulator (in effect it is an actuator). The backend implementation allows nested If-statements. If-then-else statements have been around since the early versions of Basic, and is an established way of achieving conditional computer logic. Even though the intended audience of our system is not considered computer experts, the if-then-else concept is easy to understand and catches on fast when interviewing people. An If-statement can contain multiple expressions that all are being anded when evaluated. If the user wants to make an If-statement with or'ed expressions, she will have to use a nested if. This raises the complexity and we do not consider this to be an optimal solution. The optimal solution in this case would have been to make a proper expression language that is left recursion safe, for example based on~\cite{left-recursion}. This would also solve our lacking or's in the condition of the if-statements. Unfortunately we did not realize this until around two thirds into the development. Since our jQuery~\cite{jquery} parsing on the frontend naturally is strongly bound to domain classes on the backend (due to JSon serialization - using Gson~\cite{gson}), any big changes at that point would affect both the backend and the frontend. We realized then that it would be too time consuming to change the system. We therefore leave it up to future work. We will elaborate further on this subject in the discussion (XXX remember to elaborate). 
+A statement can either be a SetStatement or an IfStatement. The SetStatement sets an value in the simulator (in effect it is an actuator). The backend implementation allows nested If-statements. If-then-else statements have been around since the early versions of Basic, and is an established way of achieving conditional computer logic. Even though the intended audience of our system is not considered computer experts, the if-then-else concept is easy to understand and catches on fast when interviewing people. An If-statement can contain multiple expressions that all are being anded when evaluated. If the user wants to make an If-statement with or'ed expressions, she will have to use a nested if. This raises the complexity and we do not consider this to be an optimal solution. The optimal solution in this case would have been to make a proper expression language that is left recursion safe, for example based on~\cite{left-recursion}. This would also solve our lacking or's in the condition of the if-statements. Unfortunately we did not realize this until around two thirds into the development. Since our jQuery~\cite{jquery} parsing on the frontend naturally is strongly bound to domain classes on the backend (due to JSon serialization - using Gson~\cite{gson}), any big changes at that point would affect both the backend and the frontend. We realized then that it would be too time consuming to change the system. We therefore leave it up to future work. 
+% Should the elaboration be; 1) here, 2) further down under Limitations or 3) in the Discussion chaper?
+We will elaborate further on this subject in the discussion (XXX remember to elaborate). 
 
 \subsection{The management website}
 The management website resides is based in a small collection of html pages that relies heavily on JQuery. The building policy administrator opens the main page in a browser, and gets an overview of all the policies and can perform CRUD operations on them.
 
 During the design phase for the GUI of the management website, we used Photoshop sketches that we mailed and transferred via Skype to each other. One from the kenyan team also assisted in this phase. After discussing how to best present policies to the building policy administrator in the time we had available, we choose an indented page layout when presenting the policies. By choosing this type of GUI, as opposed to a more tabular view on the if's, we elected a GUI that is flexible enough to extend to a recursive rendering which clearly matters a greatly when then-clauses can contain other if-statements that again contain then-clauses and so forth. For implementation see Section XXX.
 
-%%%% Kasper: Already addressed this by a new model --> ASLAK: I'm not convinced that this kind of diagram is ideal for this purpose.
+%%%% Kasper: Done. Already addressed this by a new model --> ASLAK: I'm not convinced that this kind of diagram is ideal for this purpose.
 
 \subsection{The policy engine}
 The policy engine consists of a servlet and domain classes for the expression language needed to build policies. The servlet is the core of our policy engine. It has three main objectives;
@@ -68,6 +69,24 @@ The database used is a mySQL 5.5.29 and used for storing the policies. At the mo
 \subsection{The building simulator}
 The building simulator provided in the course has not been changed or modified in any way.
 
-\subsection{Limitations}
-... Alternatives?
-%%%% Kasper: Need to work on this --> Aslak: Full embedded scripting language. Wiki: List of JVM Languages (assuming you are using Java).
+\subsection{Limitations \& alternatives}
+The core functionality of our policy engine is the expression language. During the initial research for scripting languages we looked at several established embeddable scripting languages.
+
+\begin{table}[h]
+	\center
+	\begin{tabular}{rc}
+		\textbf{Name}	&	\textbf{Description}\\
+		Jython	&	Python scripting\\
+		JRuby	&	Ruby scripting\\
+		Tcl/Java	&	Tcl scripting\\
+		Rhino	&	Javascript scripting\\
+		BSF		&	Bean Scripting Framework*
+	\end{tabular}
+	\caption{Established scripting languages found during research}\label{tbl:design-scripting-languages}
+\end{table}
+
+* The BSF supports several languages.
+
+As stated earlier, we believed that developing our own scripting language was best given the resources we had available and the timespan of the project. It would propose a great number of challenges to integrate one of the scripting languages into our code. We only needed a small subset of the functionality (mainly the if-then-else construct) and we based our decision on developing our own language on the timewise return of investment.
+
+In the team we had some initial discussions if we should use technologies like Xtext~\cite{xtext}, Xbase~\cite{xbase} and EMF~\cite{emf}. Xtext is a framework for developing programming languages and domain specific languages. Xbase is a partial programming language built in Xtext and used for integrating into other programming languages and domain specific languages. Xbase would be able to give us an working expression language. EMF is the Eclipse Modeling Framework, a modeling framework and code generation tool. Even thought some of the team members in the danish group had used those technologies during the ITU course Model Driven Development, the current state of Xbase seemed too daunting a project to undertake. At the time of writing, only 25 questions have been tagged with Xbase on~\cite{stackoverflow} - a website used frequently by the danish team members when in need of coding assistance. The lack of Xbase examples and documentation also reveals that it is a very new, and unfinished, product. Since Xbase would be the caretaker of the expression language, we could have opted to forego just that, and still use Xtext and optionally EMF. However, we chose to develop the functionality ourselves. We also considered that task to be more \textit{fun}! Developing our own scripting language made us think about how languages are designed, and the role of parsers, compilers and interpreters.
