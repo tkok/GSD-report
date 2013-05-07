@@ -31,4 +31,4 @@ We have decided to have our policies stored in a database. The database chosen w
 \\Because the fact that different policies may operate on the same sensors, we decided to use a cache to store each sensor's value. This reduces the number of queries to the simulator server so it does not crash. This cache is implemented using a hashtable and stores the value of the sensor. After executing all the active policies at that moment, this cache is cleared. 
 \section{Simulator querying}
 To communicate with the simulator's server there is the Connection class for that. It provides methods for connecting to the server and parses the JSON received from it. There are several methods implemented that parse the response of the server and offer information such as - a list with the sensors in a room by providing the room id, a list with all the sensors of a certain type (e.g ac, light, heater etc.) The most two important methods are for retrieving the sensor's value and setting it to a specific one. 
-\section{Request Flow}
+%\section{Request Flow} Somebody added Request Flow? What should be here?? Nothing?
