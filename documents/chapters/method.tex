@@ -6,11 +6,11 @@ Before kicking off the project and delve into the actual development, we needed 
 
 In our design of a policy engine, we decided to use an iterative design approach, both for the front-end and back-end. Using this approach we were able to continuously evaluate both the concept and our software. Throughout the development, we have done a lot of informal testing. The goal have been to continuously test and optimize the software and learn about the stability and performance and adjust the implementation accordingly. 
 
-For the front-end design an iterative design approach is commonly used. This allows designers to identify any usability issues that may arise in the user interface before it is put into wide use. Even the best usability experts cannot design perfect user interfaces in a single attempt, so a usability engineering life cycle should be built around the concept of iteration. \cite{Nielsen1993}
+For the front-end design an iterative design approach is commonly used. This allows designers to identify any usability issues that may arise in the user interface before it is put into wide use. Even the best usability experts cannot design perfect user interfaces in a single attempt, so a usability engineering life cycle should be built around the concept of iteration \cite{Nielsen1993}.
 
 Finally, when our goal was reached, we deployed the solution to our server.
 
-The figure below (\ref{fig:workflow} illustrates the different phases of our project.
+The figure below (fig. \ref{fig:workflow}) illustrates the different phases of our project.
 
 \begin{figure}[ht]
 \centering
@@ -19,18 +19,24 @@ The figure below (\ref{fig:workflow} illustrates the different phases of our pro
 \label{fig:workflow}
 \end{figure}
 
-Each of the steps was important for the process and contains both valuable tasks. As the figure shows, the iterative process in the middle is a repetitive process. Even though we were through this multiple times, we will only highlight the three major iterations. These iterations are coherent with the project plan and follows our general approach to the project. All of the three iterations contains multiple inclusive, but by assessing the artefact also smaller, iterations. Describing each iteration would be a some what cumbersome process.
+Each of the steps was important for the process and contains all valuable tasks. As the figure shows, the repetitive steps in the middle is a iterative process. Even though we were through this loop multiple times, we will only highlight the three major iterations. These iterations are coherent with the project plan and follows our general approach to the project. All of the three iterations contains multiple inclusive -by assessing the artefact, also smaller- iterations. Describing each iteration would be a some what cumbersome process.
 
-\subsection{1. Iteration}
-Our focus during the first iteration was to get the group work to flow and figure out how to handle the data services provided by the Danish university. In this step everything was related to getting to know each other and figuring out how to move the project forward. The artefacts produced here was very low level, such as diagrams of the group members programming skills, use case digrams and the likes. 
+\subsection{Iterations} \label{subsec:iterations}
 
-\subsection{2. Iteration}
-Spille sammen med vores datamodel
+\subsubsection{1. Iteration}
+Our focus during the first iteration was to get the group work to flow and figure out how to handle the data services provided by the Danish university. In this step everything was related to getting to know each other and figuring out how to move the project forward. The artefacts produced here was very low level, such as diagrams of the group members programming skills, use case diagrams, first thoughts of domain model, early prototypes of the frontend interface and early implementations of the data services.
 
-\subsection{3. Iteration}
-Create GUI
+It was difficult to really push the project forward at this phase. We used different means of communication with the Kenyans, but without any positive result. Our best result was reached when two out of four African members replied to our emails. No feedback, replies, comments or the likes was received from the two last members.
 
+\subsubsection{2. Iteration}
+During the second major phase the groups communication platform and general condition was stable - but unfortunately without any involvement from our Kenyan team members. We knew that we had to pushed the project forward, and had already wasted too much time on the effort to engage and activate unresponsive members. We were behind our project plan in an attempt to give them enough time to respond, without any luck. We tried to activate one semi-active member from Kenya as a team leader, but his response was, that he was not able to contact the other members.
 
+Our focus changed from here. We knew, that it would be up to us, to get the project going. We developed multiple artefacts at this point. Our goal through the second iteration was to get a working backend up and running. To do this, we had to chose the best fitting development platform and hereby programming language. The group had to agree on a set of requirements for the engine derived from the requirements in the assignment. The data model was completed and implemented, development of an early working prototype of the backend, and generated several jUnit tests to validate its robustness. Furthermore the work on the frontend started to take form. We did our first evaluation of the frontend (see \ref{sec:usability-test}).
+
+\subsubsection{3. Iteration}
+The third and final iteration was a hectic period with focus on getting things done and complete tasks. Because of the earlier effort to activate the Kenyan members, and the time consumed here, we were lacking a bit behind. The now only moderate active member from Kenya chose to leave the group due to personal circumstances. The frontend was implemented with data from the backend. A second usability test was produced. Also this paper was mostly produced here, by combining bits and pieces and adding lots of new material. Finally the end product was deployed to our server.
+
+During all of the iterations, both major and minor, we used a palette of different methods and tools. These are highly linked with the project phases. The most important are introduced and explained by usage, in the parts that follow below.
 
 \section{Collaboration} \label{sec:collaboration}
 Before any actual work could start, one preliminary goal was to figure out how we could make our group work together as one. Actually this challenge is even more so in this project than in a normal work situation: No organization is in order, no predefined roles, no actual project goals and the likes. This chapter will focus on these challenges and how we tried to handle them. 
@@ -59,7 +65,7 @@ The literature for these challenges seems to agree that these sort of problems g
 
 Collaboration readiness is a potential show stopper for the team work, if a given member is not ready to collaborate. This could be caused by having conflicts in interest, e.g. one is about to overtake another persons job or the likes. This could cause that the person, who is about to lose his job, not to be ready to collaborate in a productive manner. We have tried to identify these issues towards our fellow group members and we cannot find anything that should indicate that they would not be willing to collaborate. They should be just as interested in delivering a good product. 
 
-One thing that could cause their lack of interaction in our e-mail correspondences and Skype meetings are the technology readiness. We know that it is a challenge for some of the group members to get internet access. A recent study shows that only 36,3 \% have access to internet in Kenya \footnote{\url{http://www.capitalfm.co.ke/business/2012/01/14m-kenyans-have-access-to-the-internet/}}, which compared to Denmark's 86 \% in 2010 \footnote{\url{http://www.euo.dk/fakta/tal/internet/}}, indicates that it is not as easy to get internet access in Kenya as we are used to in Denmark. And we know by fact that a few of them do not have a stable internet connection in their home. Our approach to solve this issue was to have a meeting each Tuesday at 10:00. This way we know that they should have access to their University, which most of the time has an internet connection they could use. We know they should have time for this meeting, thus it is planned as a course on their schedule.
+One thing that could cause their lack of interaction in our e-mail correspondences and Skype meetings are the technology readiness. We know that it is a challenge for some of the group members to get internet access. A recent study shows that only 36,3 \% have access to internet in Kenya \cite{capitalfm2012internet}, which compared to Denmark's 86 \% in 2010 \cite{folketingets-eu-oplysning}, indicates that it is not as easy to get internet access in Kenya as we are used to in Denmark. And we know by fact that a few of them do not have a stable internet connection in their home. Our approach to solve this issue was to have a meeting each Tuesday at 10:00. This way we know that they should have access to their University, which most of the time has an internet connection they could use. We know they should have time for this meeting, thus it is planned as a course on their schedule.
 
 \subsubsection{Ethnocentrism} \label{subsubsec:ethnocentrism}
 A potential threat to the well-being and harmony of the group is known as Ethnocentrism \cite{durnell2004subgroup}. Ethnocentrism is a state of one subgroup, where the members sees that one group as the centre of everything, and every other group will be valued and ranked from this. A subgroup is a group inside a group, some of the group members are part of - but not the whole group is part of. This way it could create some sense of ``Us versus Them'', which is something you definitely want to avoid. One way to avoid this is to create multiple subgroups inside the group. One subgroup could be those who prefers to work with Java and back-end programming, while others prefer jQuery and front-end development. This could be subgroups across the different countries. If you are part of multiple subgroups the feeling of being part of just one group will dissolve, which should result in a more harmonious group.
