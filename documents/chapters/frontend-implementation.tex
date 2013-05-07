@@ -1,40 +1,67 @@
 \section{Front-end}
 \label{sec:front-end}
+
 \subsection{Initial Ideas}
-
-The main idea for the user interface is to keep it simple and user-friendly without loosing advanced functionality. Initially we started making a rough drawing - so to better understand what we were dealing with (See figure \ref{fig:initial_idea_frontend}). Doing so we tried to plan ahead on how the visuals could look like, the functionality, and how users would be able to control the policy engine.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\columnwidth]{initial_idea_frontend.png}
-\caption{Drawing the initial idea of the element needed on the website, so a user can create, delete or modify a policy.}
-\label{fig:initial_idea_frontend}
-\end{figure}
-
 We quickly realized that our ideas could easily expand the project, with numerous functionality and features, that would bring the project to a far more complex level.
-We mapped all our ideas and prioritised them, and made a selection of ideas, which we planned on implementing.
+We mapped all our ideas and prioritized them, and made a selection of ideas, which we planned on implementing.
 
-The selected ideas included that:
+The selected ideas that we wanted to realize (sorted by importance) included:
 \begin{itemize}
 \item Users should be able to add, delete and modify policies.
 \item Users should be able to use complex operators in policies, e.g. higher than, lower than, equal to etc.
-\item Users should be able to create nested rules in policies.
-%%%% Aslak: Remember to describe how these wildcards are implemented. In the proper section.
-\item Users should be able to use wildcards in a policy, e.g. effecting for instance an entire floor without the need to specify the rooms that belong to the chosen floor.
 \item Users should be able to save policies and easily toggle an ON or OFF state.
 \item Users should be able to combine multiple sensors in a single policy.
+%%%% Aslak: Remember to describe how these wildcards are implemented. In the proper section.
+\item Users should be able to use wildcards in a policy, e.g. effecting for instance an entire floor without the need to specify the rooms that belong to the chosen floor.
+\item Users should be able to create nested rules in policies.
 \end{itemize}
 
 
-The ideas were broken into three main front-end pages\footnote{Front-end pages are dynamic HTML website.}, from where the user can control the policy engine and overlook its operation.
+\subsection{User Interface}
+The main goal for the user interface have been to keep it simple and user-friendly without loosing advanced functionality. Initially we started making rough drawings - to better understand what we were dealing with and how to best possibly present it. Doing so we tried to sketch the process of handling a policy from the creation to the enabling of it.
 
-The three mains are:
-\begin{enumerate}
-\item A site where a user can create, delete or modify -policies.
-\item A site that visually represent the building digitally with floors and rooms (like a map used to navigate through rooms and floors).
-\item A site that displays sensor values and group them in regards to the individual room they represent.
-\end{enumerate}
-	
+\subsubsection{Speed}
+You need speed to save time! Therefore if your application takes 5 seconds every time someone clicks a button to load a page then that is bad! When a user sets up a policy, then they want to have it done in a fast and easy way. If the majority of the time is spent loading the page or saving updates all the time the users will simply not use the application. Therefor we have made a interface using Javascript / Jquery that lets the user setup and model any changes almost instantly before saving it to the database. This way they can experiment and set statements up without overwriting the policy until they are sure they want to save what they have done.
+
+\subsubsection{color coding}
+It's important to use color in your interface. Colors send signals to the user sub-consciously, so therefore you can make use of this with things like buttons and colored areas. We have used this idea to color the different boxes under a statement, to improve the readability and make it more intuitive. We used a red color for the IF boxes and a green color for the THEN and ELSE boxes. The reason for this is that the IF is a "`get"' type and the other two is a "`set"' type.
+
+\subsubsection{Responsive design}
+Responsive web design is a web design approach aimed at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from desktop computer monitors to mobile phones). While we haven't directly optimized for mobile we have had the responsive design idea in mind when setting up the design. What we have assured is that the user interface is adjusted to the screen size of the user. Meaning if you for instance use a full HD resolution (1920x1080) the interface will utilize this space.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\columnwidth]{policylist.png}
+\caption{Illustrating the policy list-view.}
+\label{fig:policylist}
+\end{figure}
+
+
+\subsection{Policy Editor}
+
+\subsubsection{Process}
+
+Blabla
+
+\subsubsection{End result}
+
+Blabla
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\columnwidth]{policy.png}
+\caption{Editing a policy.}
+\label{fig:policy}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\columnwidth]{statement.png}
+\caption{Configuring statements.}
+\label{fig:statement}
+\end{figure}
+
 
 \subsection{Usability}
 Seeing policies as rules for rooms in a building, with multiple sensors in each and every room, that can affect multiple actuators - not only in one room, but all of the rooms in a building: It leaves the user with a lot of selections. 
@@ -43,17 +70,7 @@ This will, if not represented properly, complicate the process of adding new pol
 Following the principles of Steve Krug's "Don't Make Me Think: Common Sense Approach to the Web"\cite{Krug:2005:DMM:1051204}, the functionality of a website should always let users accomplish their intended tasks as easy and directly as possible.
 Throughout the development of the front-end sites we have thrived to do so.
 
-As an example, we have designed the process of adding new policies, as stepwise selections, instead of presenting the users with all the capabilities and elements at once.
-The task then looks simpler, and makes the flow of  adding a new policy, more easy, and more direct.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\columnwidth]{building_policy_steps.png}
-\caption{Illustrating the different elements introduced step-by-step. When the user has selected the first elements in "Step 1", then the elements in "Step 2" appears, and so it continues until a final "Add" button completes the process.}
-\label{fig:building_policy_steps}
-\end{figure}
-
-Another approach towards usability was using web elements like: Selectors and Buttons, instead of having textual policies, and thereby forcing users to write policy, using the keyboard.
+Another approach towards usability was using web elements like: Selectors and Buttons, instead of having textual policies, and thereby forcing users to a write policy, using the keyboard.
 
 For a developer textual editing and console commands might be preferred, and may somewhat be quicker, while they know the inputs by heart. But the intended users of our policy engine, are most likely not developers or fans of typing in commands.
 Also it forces users to memorize the inputs, and makes controlling the policy engine less intuitive. Therefore the idea was discarded and visual elements was implemented instead.
