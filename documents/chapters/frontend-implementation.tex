@@ -24,11 +24,11 @@ The main goal for the user interface have been to keep it simple and user-friend
 \subsubsection{Speed}
 You need speed to save time! Therefore if your application takes 5 seconds every time someone clicks a button to load a page then that is bad! When a user sets up a policy, then they want to have it done in a fast and easy way. If the majority of the time is spent loading the page or saving updates all the time the users will simply not use the application. Therefor we have made a interface using Javascript / Jquery that lets the user setup and model any changes almost instantly before saving it to the database. This way they can experiment and set statements up without overwriting the policy until they are sure they want to save what they have done.
 
-\subsubsection{color coding}
+\subsubsection{Color Coding}
 It's important to use color in your interface. Colors send signals to the user sub-consciously, so therefore you can make use of this with things like buttons and colored areas. We have used this idea to color the different boxes under a statement, to improve the readability and make it more intuitive. We used a red color for the IF boxes and a green color for the THEN and ELSE boxes. The reason for this is that the IF is a "`get"' type and the other two is a "`set"' type.
 
-\subsubsection{Responsive design}
-Responsive web design is a web design approach aimed at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from desktop computer monitors to mobile phones). While we haven't directly optimized for mobile we have had the responsive design idea in mind when setting up the design. What we have assured is that the user interface is adjusted to the screen size of the user. Meaning if you for instance use a full HD resolution (1920x1080) the interface will utilize this space.
+\subsubsection{Responsive Design}
+Responsive web design is a web design approach aimed at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from desktop computer monitors to mobile phones). While we haven't directly optimized for mobile we have had the responsive design idea in mind when setting up the design. What we have assured is that the user interface is adjusted to the screen size of the user. Meaning if you for instance use a full HD resolution (1920x1080) the interface will utilize this space (see examples on figures \ref{fig:policylist}, \ref{fig:policy}, \ref{fig:statement}).
 
 \begin{figure}[ht]
 \centering
@@ -39,7 +39,7 @@ Responsive web design is a web design approach aimed at crafting sites to provid
 
 \subsection{Policy Editor}
 
-\subsubsection{Managing policies}
+\subsubsection{Managing Policies}
 In order to make it simple and fast to manage a policy we have split the interface for a policy up into sections and sub sections. We have two sections: Policy Information and Policy Statements. In Policy Information, all the content: name, description and time interval are defined. Also if the policy should be active, and run on the Policy Engine, can be defined in this section. The Policy Statements section is where all the conditions and actions are defined. We have added a sub section for each statement to improve the readability and overview of what is executed and what is paired together (see figure \ref{fig:policy}).  
 
 \begin{figure}[ht]
@@ -62,6 +62,11 @@ To make it take less space and work to define a statement that should apply to a
 \label{fig:statement}
 \end{figure}
 
+\subsection{Use Case View}
+The solution's final use case diagram is shown in Figure XXX
+
+INSERT HERE
+
 \subsection{Usability}
 Seeing policies as rules for rooms in a building, with multiple sensors in each and every room, that can affect multiple actuators - not only in one room, but all of the rooms in a building: It leaves the user with a lot of selections. 
 This will, if not represented properly, complicate the process of adding new policies.
@@ -71,8 +76,8 @@ Throughout the development of the front end site we have thrived to do so. And w
 
 \subsubsection{Layers of Abstraction}
 
-With the policy engine there are different layers of abstraction: Visual UI, Textual UI, Language, Engine.
+With the policy engine there are different layers of abstraction: Visual UI, Textual UI, Engine.
 
-We have focused on the Visual UI enabling a graphical representation of the CRUD process. The other approach is having policies handled in a textual manor, and thereby forcing users to a write the statements in a policy, using some kind of DSL. For a developer textual editing and console commands might be preferred, and may somewhat be quicker, while they know the inputs by heart. But the intended users of our policy engine, are most likely not developers or fans of typing in commands.
+We have focused on the Visual UI enabling a graphical representation of the CRUD process. The other approach is having policies handled in a textual manner, and thereby forcing users to a write the statements in a policy, using a domain specific language. For a developer textual editing and console commands might be preferred, and may somewhat be quicker, while they know the inputs by heart. But the intended users of our policy engine, are most likely not developers or fans of typing in commands.
 
 In a future version of the policy engine, both methods could be implemented to function in parallel, giving a user both choices, and also the capability of copy and paste policies quickly.

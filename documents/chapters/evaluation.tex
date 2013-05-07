@@ -3,40 +3,79 @@
 In our project we have two areas that we have been evaluating. The first being if our policy engine is actually working and enforcing the defined policies. The other being the front end interface, testing to uncover potential usability issues that needed solving.
 
 \section{Policy Engine System Evaluation}
+\label{policy-engine-system-evaluation}
 
 \subsection{Log Testing}
-Within the code of our software product we have used intensive logging. Doing so we have been able to verify the results and outcome when testing.
+\label{log-test}
+Within the code of our software product we have used intensive logging. Doing so we have been able to verify the results and outcome while testing.
 
-For quality control we have been using these log-files for the entire solution to cress reference every action performed during testing and verified with the actual data stored in the database.
+For quality control we have also been using these log-files. Verifying our solution by cross-referencing every action during tests, and match it with the actual data stored in the database.
 
-!!!!INSERT example from logfile!!!
+!!!!INSERT example from log-file!!!
 
 
 Log every action and check timestamps, values, actions etc...
 
 \subsection{JUnit Testing}
-.......
+To further test the software we made, we performed a range of JUnit Tests. JUnit is a unit testing framework for the Java programming language, which our software solution is based on. The unit test validate specified checks. 
+
+In simple terms. Imagine you made a function that adds 2 \+ 2. You know the outcome should be 4. So you make a JUnit test the verify the outcome with the number 4 using assertions.
+If the outcome compared is indeed "4" the JUnit test returns true, if not: false.
+
+Image however that the test is much larger, and much more complex the JUnit testing becomes very useful.
 
 \section{Usability Test}
+\label{usability-test}
+To evaluate on the usability of our policy engine we decided to make a test with candidates outside of our development group.
 
-\subsection{Think Aloud Test}
+In general, when it come to "best practices of usability tests", the Think Aloud Protocol is considered one of the most valuable. REF: Jacob Nielsen for  "Thinking aloud may be the single most valuable usability engineering method." 1993, Usability Engineering, Jacob Nielsen
 
-In a thinking aloud test, you ask test participants to use the system while continuously thinking out loud — that is, simply verbalizing their thoughts as they move through the user interface.
+Therefore we decided to use it for our evaluation. Also the Think Aloud Protocol, is inexpensive in cost and time, and it is easy to set up and gives very valuable result from real-life scenarios. 
 
-To run a basic thinking aloud usability study, you need to do only 3 things:
+\subsection{Think Aloud Protocol}
+In a thinking aloud test, you ask test participants to use the system while continuously thinking out loud — that is. Simply verbalizing their thoughts as they move through the user interface, and take actions.
 
-Recruit representative users.
-Give them representative tasks to perform. %%ASLAK: Perhaps someone from FM??
-Shut up and let the users do the talking.
+To run a basic thinking aloud usability study, 3 things is required:
+\begin{itemize}
+\item Recruit representative users.
+\item Inform them of representative tasks to perform. %%ASLAK: Perhaps someone from FM??
+\item Avoid interference and let the users speak their actions.
+\end{itemize}
+
+We invited five people to a think aloud test. Research shows that having just five people will potentially uncover 80\% of all usability problems.
+REF: http://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/
+
+The candidates is male and female students at itu, between 25 and 30. Some of them study software development and have a lot of knowledge in programming, others study digital design and knows more about human computer interaction and usability. However they all have web development in common.
+
+\subsubsection{Tasks}
+We arranged 7 tasks for the candidates to perform.  Note however that the tests where held individually from each candidate, but they were all giving the same set of tasks. 
+During the tests, candidates where only given one tasks at a time to focus on - using small tasks cards.
+
+The candidates where assigned the following tasks. The questions is designed so that the candidates makes use of all the features in policy engine:
+
+\begin{framed}
+To save energy the heating throughout the building is automatically turned of around 17:00. However this Wednesday around 19:00 - 22:00 an exclusive presentation is held in room number. 5 on 1. floor.
+You are asked to maintain a temperature at 21 degrees throughout the presentation.
+
+\end{framed}
 
 
-Cheap, simple, flexible....
+\begin{framed}
+It is summertime and the overall temperature inside the building is rising. You are asked to keep temperature at maximum 22 in all of the rooms in the  building.
+\end{framed}
 
-Research shows that testing 5 persons uncover 80\% of all usability problems...
+
+\begin{framed}
+All afternoon between 12:00 and 16:00 the sun is at its peak. Therefore you are asked to set blinds ON in all the rooms on 1. floor and 2. floor - but only if the lights are ON.
+\end{framed}
+
+After the think aloud test, we made changes to front-end and redid the test with the same tasks to verify the improvements. 
+After the second round of testing we felt comfortable with the usability for the purpose of this project. However there still remains some point where the front-end could be further improved.
+
+WRITE WHAT THE RESULTS OF THE USABILITY TESTS WAS!
 
 
-REFERENCE
-"Thinking aloud may be the single most valuable usability engineering method." 1993, Usability Engineering, Jacob Nielsen
+
 
 \section{Technology}
 In the beginning of the project we talked about the many technologies available for web development. Obviously there are many approaches to the same solution. Focussing on working as a team, that all have different background experiences we decided to individually write down our development qualifications.
