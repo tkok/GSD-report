@@ -21,7 +21,7 @@ This project was defined in the course Global Software Development at IT Univers
 
 The development focus of this project is therefore geared towards this simulator. The end product is a web-based management application, that allows for centralized flow control between sensors and actuators in the simulated building. This is achieved by implementing a policy engine that allows for automated actuator responses based on sensor feedback. An example at this would be closing the blinds in excess sunlight or turning off the heater when the windows are open.
 
-In this paper we will; 
+In this paper we will: 
 \begin{enumerate}
 	\item Distil requirements from course provided material 
 	\item Literature (re-)search on policy engines
@@ -37,11 +37,11 @@ A part of the whole 'go green' concept is to control your energy and natural res
 We assume that the Building Simulator \textit{is} the building. Our system is therefore \textit{open} compared to proprietary, since all it takes to access, e.g. the temperature in a room is a http get operation with the building id and sensor in question. A everyday example could be a janitor, who might need to go to a room physically to check its temperature, and adjust the heater in that room, several times a day to achieve and maintain the desired temperature. Our governing policies makes it up for a building janitor, or at least the trivial work with adjusting room temperatures and the likes. Human staff starts out by defining the policies that the building needs. Then we can imagine the virtual janitor, issuing http get operations all day, to check the sensors mentioned in those policies. The policies consists of sensor-conditional behaviour that will adjust the actuators (by issuing http post commands with sensor id and the desired value) continuously.
 
 \section{Problem} \label{sec:problem}
-The task of controlling the buildings gets likewise progressively more complex - especially if that control should be optimized in regards to both economic and human comfort. What good is a highly advanced building if the task of controlling it is just as complex?
+With the ability to manage every sensor in a given building, one can assume that the task of controlling these gets progressively -for each number of additional sensor and actuator- more complex. Any additional concern will add further complexity, such as optimizing the control to prioritize both economic and human comfort. One needs to consider this challenge; What good is a highly advanced building if the task of controlling it is just as complex?
 
 We seek to design a system where FM can define a set of policies they believe is needed, based on their experience with the building. We do not expect FM to be IT experts, but we do expect them to be able to use a modern browser and be familiar with the sensor id's used in the building.
 
-Our main consideration in this paper is; \textit{providing a web-based infrastructure to visually define, manage and monitor the scheduling of governing policies for building subsystems.}
+Our main consideration in this paper is: \textit{Providing a web-based infrastructure to visually define, manage and monitor the scheduling of governing policies for building subsystems. This should be provided in an easy accessible interface that provides a buildings FM the means to control the buildings intelligent system, while considering the economics and the human comfort.}
 
 In addition to the general problem from above, we further want to point out these challenges:
 \begin{enumerate}
@@ -75,5 +75,3 @@ The overall requirements of the project are in a very open-ended manner, with on
 	\item The students should be able to write a proper, understandable and well organized report (10\%).
 	\item The students should be able to reflect on a real world collaborative experience (20\%).
 \end{itemize}
-
-
