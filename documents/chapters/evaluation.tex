@@ -22,7 +22,7 @@ To further test the software we made, we performed a range of JUnit Tests. JUnit
 
 In simple terms. Imagine you made a function that adds 2 \& 2. You know the outcome should be 4. So you make a JUnit test that verify the result using assertions. If the outcome compared is indeed 4, the JUnit test returns the boolean value \textit{true}, and \textit{false} if not.
 
-Image however that the test is much larger, and much more complex the JUnit testing becomes very useful.
+Imagine however that the software is much larger, and much more complex - JUnit testing becomes very useful.
 
 \section{Usability Test}
 \label{sec:usability-test}
@@ -68,10 +68,38 @@ It is summertime and the overall temperature inside the building is rising. You 
 All afternoon between 12:00 and 16:00 the sun is at its peak. Therefore you are asked to set blinds ON in all the rooms on 1. floor and 2. floor - but only if the lights are ON.
 \end{framed}
 
-After the think aloud test, we made changes to front-end and redid the test with the same tasks to verify the improvements. 
-After the second round of testing we felt comfortable with the usability for the purpose of this project. However there still remains some point where the front-end could be further improved.
+Note that after every think aloud test, we made changes to front-end and redid the test using the same tasks to verify the improvements. 
 
-NOTE: ....Our results show... (Here will follow more results soon!)
+
+
+\subsubsection{Results and Comments}
+\label{results-and-comments}
+After every participant have gone through the think aloud test. We went through all their remarks. Some were the same, and those we combined into one.
+For all the remarks, we have made some comments as listed below - including the actions we have taken to further improve the software.
+
+\begin{quotation}
+If there is a lot of policies - which I would expect there will be? Then I think the active policy list will be too long. I think it would make it difficult to find a specific (policy) if say you have a 100 policies.
+\end{quotation}
+
+The user is referring to the “Active Policy Site”, from which every active policy is listed underneath each other. The user finds that the site may force the user to do a lot of scrolling in order to find a specific policy.
+
+Due to this we implemented a expand function, which instead of listing all the content, in all of the listed policy. It on shows name and time and a button in the right hand corner, which if clicked expands the policy and reveals all of the content. This way the list will be much more compact and easier to go through. 
+
+For future implementation we would also like to make a search function, from which the user is able to filter the policy by the search inputs. In example: name, or rooms effected  by the policy etc.
+ 
+\begin{quotation}
+I think it is difficult to see which one (rules) belong to what (expression).
+\end{quotation}
+
+The user is referring to the rules within a given policy. In every policy the user have the option to use expressions such as IF, THEN, ELSE. The user finds that it is difficult to see which rules belong to what expression (IF, THEN and ELSE).
+
+Due to this we implemented a color technique, which colorize the rules that belongs under the same expression. As an example all the rules belonging to an IF -expressions is colored with a red background on the site, while all the THEN –expression is colored green.
+
+In the second think aloud test, all participant expressed that they loved the coloring. That they diffidently feel that the overview is much better and think it is easier to understand.
+
+
+After the second round of testing we still had some changes that we wanted to make, however we felt comfortable with the overall usability for the purpose of this project. We believe that there is always room for improvement. And so we have made some comments on this in the FUTURE IMPROVEMENT SECTION.
+ 
 
 %ATTENTION: Note: Insert results from think aloud test and write what we have learned from this
 
@@ -82,13 +110,14 @@ From all of the qualifications in the group, we joined together and made a top t
 
 \begin{table}[h]
 \caption{Team members experience with different technologies}\label{tbl:dev_environment}
-    \begin{tabular}{rccccc}
-    Dev environment        & Kasper & Thomas & Stefan & Rasmus & Nicolas \\
-    PHP, JavaScript, MySQL & 2      & 1      & 3      & 3      & 1       \\
-    C\#.Net, MS SQL         & 3      & 3      & 2      & 1      & 3       \\
-    Java, JSP, Tomcat      & 1      & 2      & 1      & 2      & 2       \\
+    \begin{tabular}{rccccccccc}
+            & \rotatebox{90}{Kasper} & \rotatebox{90}{Thomas} & \rotatebox{90}{Stefan} & \rotatebox{90}{Rasmus} & \rotatebox{90}{Nicolas} & \rotatebox{90}{Steven} & \rotatebox{90}{Cecil} & \rotatebox{90}{Tom} & \rotatebox{90}{Lucy} \\
+    PHP, JavaScript, MySQL & 2      & 1      & 3      & 3      & 1   &1 &1 &- &1    \\
+    C\#.Net, MS SQL         & 3      & 3      & 2      & 1      & 3    &3 &1 &- &3  \\
+    Java, JSP, Tomcat      & 1      & 2      & 1      & 2      & 2     &2 &3 &- &3  \\
     \end{tabular}
 \end{table}
+Note that Tom in Tabel \ref{tbl:dev_environment} didn't want to share his experience with the rest of team. Therefore the comparison table was never completed.
 
 One of the challenges in this project was technology readiness. Every team member has a preferred development language, which ultimately led to a long debate on settling with a development language, and what kind of framework the group should use.
 The problem was that: either way - some team members would have a harder time participating with implementation than others.
