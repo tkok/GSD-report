@@ -54,6 +54,25 @@ Each user's "current knowledge point" and "target knowledge point" will be diffe
 
 Users can accomplish their goals when the "current knowledge point" is equal to the "target knowledge point". There are two ways to achieve this. You can train the user, thereby increasing their current knowledge, until they know everything they need to do the job. The other way is to design an interface that can reduce the "current knowledge point" by making the interface more accessible until the "target knowledge point" requires only the information the user already has.
 
+\subsubsection{Flow}
+We have strived to create an interface that provides a good flow to the user. The user should not notice the interface but have full focus on the task to be solved - the interface should be transparent. Any distraction breaks the flow.
+
+\begin{quotation}
+"No matter how cool your interface is, less of it would be better"
+- Alan Cooper
+\end{quotation}
+
+There are three prerequisites for achieving flow:
+
+\begin{itemize}
+
+  \item The user must have a clearly defined goal.
+  \item There must be a good balance between the user's skills and challenges the user must deal with.
+  \item There must be clear and immediate feedback.
+
+\end{itemize}
+
+Especially the last point of the 3 above, it can be difficult to achieve when you are in an online environment with response times. However, we believe that we have solved this by allowing the user to model their policy without any server interaction until they want to save.
 
 \subsubsection{Speed}
 You need speed to save time! Therefore if your application takes 5 seconds every time someone clicks a button to load a page then that is bad! When a user sets up a policy, then they want to have it done in a fast and easy way. If the majority of the time is spent loading the page or saving updates all the time the users will simply not use the application. Therefor we have made a interface using Javascript / Jquery that lets the user setup and model any changes almost instantly before saving it to the database. This way they can experiment and set statements up without overwriting the policy until they are sure they want to save what they have done.
