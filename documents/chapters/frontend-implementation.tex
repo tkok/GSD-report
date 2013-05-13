@@ -79,19 +79,19 @@ In order for the user to get the best possible experience on a website, it is im
 
 \begin{quotation}
 Up to 0.1 seconds
-Users perceive the systems response to be instantaneous
-0.1 – 1.0 seconds
-Users notice a delay, but their thought processes stay uninterrupted
-1.0 – 10 seconds
-Users regard the system as slow, and their mind is likely to wander
-After 10 seconds
-The system will loose the users’ attention. They start doing other things or switch to another application
+\\Users perceive the systems response to be instantaneous
+\\0.1 – 1.0 seconds
+\\Users notice a delay, but their thought processes stay uninterrupted
+\\1.0 – 10 seconds
+\\Users regard the system as slow, and their mind is likely to wander
+\\After 10 seconds
+\\The system will loose the users’ attention. They start doing other things or switch to another application
 \end{quotation}
 
-Based on this it is important to optimize the web site, both for the code generated on the server, but also to optimize the front-end since around 80\% of the load time \cite{responsetimes} of a website is spend on parsing the generated HTML document, execute javascript and download any external resources. There are a number of things you can do, which we will not go in depth with but just touch on. A few points we are aware of is where and in what order javascript and css is located and loaded, javascript can be loaded last as javascript usually is loaded after a page is fully parsed. Furthermore, you can set preferences for cache, flushing and reduce the number of external files to load in an application by combining various javascript files into one and also combine CSS files.
+Based on this it is important to optimize the web site, both for the code generated on the server, but also to optimize the front-end since around 80\% of the load time \cite{responsetimes} of a website is spend on parsing the generated HTML document, execute javascript and download any external resources. There are a number of things you can do, which we will not go in depth with but just touch on. A few points we are aware of is where and in what order javascript and css is located and loaded, javascript can be loaded last as javascript usually is loaded after a page is fully parsed. Furthermore, you can set preferences for cache and reduce the number of external files to load in an application by combining various javascript files into one and also combine CSS files.
 
 \subsubsection{Color Coding}
-It's important to use color in your interface. Colors send signals to the user sub-consciously, so therefore you can make use of this with things like buttons and colored areas. We have used this idea to color the different boxes under a statement, to improve the readability and make it more intuitive. We used a red color for the IF boxes and a green color for the THEN and ELSE boxes. The reason for this is that the IF is a "`get"' type and the other two is a "`set"' type.
+It's important to use color in your interface \cite{colorcoding}. Colors send signals to the user sub-consciously, so therefore you can make use of this with things like buttons and colored areas. We have used this idea to color the different boxes under a statement, to improve the readability and make it more intuitive. We used a red color for the IF boxes and a green color for the THEN and ELSE boxes. The reason for this is that the IF is a "`get"' type and the other two is a "`set"' type.
 
 \subsubsection{Responsive Design}
 Responsive web design is a web design approach aimed at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from desktop computer monitors to mobile phones). While we haven't directly optimized for mobile we have had the responsive design idea in mind when setting up the design. What we have assured is that the user interface is adjusted to the screen size of the user. Meaning if you for instance use a full HD resolution (1920x1080) the interface will utilize this space (see examples on figures \ref{fig:policylist}, \ref{fig:policy}, \ref{fig:statement}).
