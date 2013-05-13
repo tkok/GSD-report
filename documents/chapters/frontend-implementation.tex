@@ -74,8 +74,21 @@ There are three prerequisites for achieving flow:
 
 Especially the last point of the 3 above can be difficult to achieve, when you are in an online environment with response times. However, we believe that we have solved this by allowing the user to model their policy without any server interaction until they want to save.
 
-\subsubsection{Speed}
-You need speed to save time! Therefore if your application takes 5 seconds every time someone clicks a button to load a page then that is bad! When a user sets up a policy, then they want to have it done in a fast and easy way. If the majority of the time is spent loading the page or saving updates all the time the users will simply not use the application. Therefor we have made a interface using Javascript / Jquery that lets the user setup and model any changes almost instantly before saving it to the database. This way they can experiment and set statements up without overwriting the policy until they are sure they want to save what they have done.
+\subsubsection{Response Times}
+In order for the user to get the best possible experience on a website, it is important to optimize response times. Below is the overview of user's reactions at different response times from Alan Cooper - About Face 3:
+
+\begin{quotation}
+Up to 0.1 seconds
+Users perceive the systems response to be instantaneous
+0.1 – 1.0 seconds
+Users notice a delay, but their thought processes stay uninterrupted
+1.0 – 10 seconds
+Users regard the system as slow, and their mind is likely to wander
+After 10 seconds
+The system will loose the users’ attention. They start doing other things or switch to another application
+\end{quotation}
+
+Based on this it is important to optimize the web site, both for the code generated on the server, but also to optimize the front-end since around 80\% of the load time \cite{responsetimes} of a website is spend on parsing the generated HTML document, execute javascript and download any external resources. There are a number of things you can do, which we will not go in depth with but just touch on. A few points we are aware of is where and in what order javascript and css is located and loaded, javascript can be loaded last as javascript usually is loaded after a page is fully parsed. Furthermore, you can set preferences for cache, flushing and reduce the number of external files to load in an application by combining various javascript files into one and also combine CSS files.
 
 \subsubsection{Color Coding}
 It's important to use color in your interface. Colors send signals to the user sub-consciously, so therefore you can make use of this with things like buttons and colored areas. We have used this idea to color the different boxes under a statement, to improve the readability and make it more intuitive. We used a red color for the IF boxes and a green color for the THEN and ELSE boxes. The reason for this is that the IF is a "`get"' type and the other two is a "`set"' type.
