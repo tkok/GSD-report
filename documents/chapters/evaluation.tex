@@ -11,10 +11,11 @@ We have logged system data which was important as to determine if the system is 
 For quality control we have also been using these log files. Verifying our solution by cross-referencing every action during tests, and match it with the actual data stored in the database.
 One excerpt from the log file can be seen in figure \ref{fig:log}
 
-\begin{figure}
-\center{
-\includegraphics[scale=0.5]{images\log.png}
-\caption{An excerpt from the log file.}\label{fig:log}}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\columnwidth]{images/logoutput.png}
+\caption{An excerpt from the log file.}
+\label{fig:log}
 \end{figure}
 
 \subsection{JUnit Testing}
@@ -22,6 +23,7 @@ To further test the software we made, we performed a range of JUnit Tests. After
 One example of these test can be seen in \ref{appendix:junit-test}. In this test we set the temperature of a room to 11 degrees and we want to turn on the heater in the room if the temperature is equal to 10 degrees, otherwise we want to roll down the blinds. The test will succed when checking if the blinds are rolled down, as the temperature is set to 11 degrees. 
 We have employed tests for checking all the posibilities of operations against the operators. 
 The result was that our IF-THEN-ELSE concept implementation performed as expected. 
+%%Rasmus: jUnit test reference is missing
 
 \section{Usability Test}
 \label{sec:usability-test}
