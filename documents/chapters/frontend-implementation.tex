@@ -23,17 +23,31 @@ The selected ideas that we wanted to realise (sorted by importance) included:
 \item Users should be able to create nested rules in policies.
 \end{itemize}
 
-All these points where realised in the backend of our implementation, however because of time limits we regret that the possibility to create nested statements did not make it to the user interface. Still we have an interface fully ready to support nested statements, but this is something we have added to future work instead. We have started work on a recursive function to be able to cleverly support endlessly (in theory, computing resources are not endless) deep nested statements. These nested statements would be listed under THEN and would contain a new set of IF, THEN, ELSE subsections. These sections would be easy readable because of indentation and encapsulation.
-
-\subsection{User Interface}
-The main goal for the user interface has been to keep it simple and user-friendly without loosing advanced functionality. Initially we started making rough drawings to better understand what we were dealing with and how to best possibly present it. Doing so we tried to sketch the process of handling a policy from the creation to the enabling of it. We came up with various approaches one of the more interesting ones being the step wise (see figures \ref{fig:initialidea}, \ref{fig:initialidea:policysteps}). However this approach proved to not be as flexible and able to handle very detailed and complex polices. Our aim has been to make a great overview for the user. Therefor we chose another concept that are splitting each statement up into an open / closeable area to better encapsulate the logic. We found that you very often read one statement at a time, therefor you can have the statements open you are interested in, and won't be confused by statements not applicable to an area of interest. Within each statement we also decided to split up IF, THEN and ELSE into subsections because you in theory can add as many entries to each subsection as needed. Nonetheless the introduction of "`wildcard"' values for instance allows to manipulate an entire floors heaters, taking up much less space and work for the user to define then having to set up entries for each heater on a floor. See an example from the final view of a policy build at figure \ref{fig:statement}.
-
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\columnwidth]{building_policy_steps.png}
 \caption{Initial drawing - step wise build up.}
 \label{fig:initialidea:policysteps}
 \end{figure}
+
+All these points where realised in the backend of our implementation, however because of time limits we regret that the possibility to create nested statements did not make it to the user interface. Still we have an interface fully ready to support nested statements, but this is something we have added to future work instead. We have started work on a recursive function to be able to cleverly support endlessly (in theory, computing resources are not endless) deep nested statements. These nested statements would be listed under THEN and would contain a new set of IF, THEN, ELSE subsections. These sections would be easy readable because of indentation and encapsulation.
+
+\subsection{User Interface}
+The main goal for the user interface has been to keep it simple and user-friendly without loosing advanced functionality. Initially we started making rough drawings to better understand what we were dealing with and how to best possibly present it. Doing so we tried to sketch the process of handling a policy from the creation to the enabling of it. We came up with various approaches one of the more interesting ones being the step wise (see figures \ref{fig:initialidea}, \ref{fig:initialidea:policysteps}). However this approach proved to not be as flexible and able to handle very detailed and complex polices. Our aim has been to make a great overview for the user. Therefor we chose another concept that are splitting each statement up into an open / closeable area to better encapsulate the logic. We found that you very often read one statement at a time, therefor you can have the statements open you are interested in, and won't be confused by statements not applicable to an area of interest. Within each statement we also decided to split up IF, THEN and ELSE into subsections because you in theory can add as many entries to each subsection as needed. Nonetheless the introduction of "`wildcard"' values for instance allows to manipulate an entire floors heaters, taking up much less space and work for the user to define then having to set up entries for each heater on a floor. See an example from the final view of a policy build at figure \ref{fig:statement}.
+
+\subsubsection{Intuitive Design}
+What you want to achieve when designing an interface is to make it as intuitive as possible. This can be archieved by looking at the user's "knowledge space" \cite{intuitivedesign}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\columnwidth]{knowledge-brick-3.png}
+\caption{The space between the Current Knowledge and Target Knowledge points is called The Knowledge Gap.}
+\label{fig:intuitivedesign}
+\end{figure}
+
+The distance from the left (As seen on figure \ref{fig:intuitivedesign}) indicates how much a given user is familiar with an interface, this is called the "current knowledge point". The next point of interest is called "target knowledge point". This section details how much knowledge the user needs to know to achieve their goals.
+Each time a user attempts to perform a specific task, their "current knowledge point" and "target knowledge point" are very important for us to identify.
+Each user's "current knowledge point" and "target knowledge point" will be different when they gain more experience. However, it turns out that, by making usability tests we can often identify groups of users who have almost the same "current knowledge point". This is also why we have performed think-aloud tests, which we will get back to later in this report.
 
 \subsubsection{Speed}
 You need speed to save time! Therefore if your application takes 5 seconds every time someone clicks a button to load a page then that is bad! When a user sets up a policy, then they want to have it done in a fast and easy way. If the majority of the time is spent loading the page or saving updates all the time the users will simply not use the application. Therefor we have made a interface using Javascript / Jquery that lets the user setup and model any changes almost instantly before saving it to the database. This way they can experiment and set statements up without overwriting the policy until they are sure they want to save what they have done.
