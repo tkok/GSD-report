@@ -2,8 +2,15 @@
 \label{sec:front-end}
 
 \subsection{Initial Ideas}
-We quickly realised that our ideas could easily expand the project, with numerous functionality and features, that would bring the project to a far more complex level.
+We quickly realised that our ideas could easily expand the project, with numerous functionality and features, that would bring the project to a far too complex level.
 We mapped all our ideas and prioritized them, and made a selection of ideas, which we planned on implementing.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\columnwidth]{initial_idea_frontend.png}
+\caption{Initial drawing.}
+\label{fig:initialidea}
+\end{figure}
 
 The selected ideas that we wanted to realise (sorted by importance) included:
 \begin{itemize}
@@ -16,10 +23,17 @@ The selected ideas that we wanted to realise (sorted by importance) included:
 \item Users should be able to create nested rules in policies.
 \end{itemize}
 
-All these points where realised in the backend of our implementation, however because of time limits the possibility to create nested statements did not make it to the user interface.
+All these points where realised in the backend of our implementation, however because of time limits we regret that the possibility to create nested statements did not make it to the user interface. Still we have an interface fully ready to support nested statements, but this is something we have added to future work instead. We have started work on a recursive function to be able to cleverly support endlessly (in theory, computing resources are not endless) deep nested statements. These nested statements would be listed under THEN and would contain a new set of IF, THEN, ELSE subsections. These sections would be easy readable because of indentation and encapsulation.
 
 \subsection{User Interface}
-The main goal for the user interface have been to keep it simple and user-friendly without loosing advanced functionality. Initially we started making rough drawings - to better understand what we were dealing with and how to best possibly present it. Doing so we tried to sketch the process of handling a policy from the creation to the enabling of it.
+The main goal for the user interface has been to keep it simple and user-friendly without loosing advanced functionality. Initially we started making rough drawings to better understand what we were dealing with and how to best possibly present it. Doing so we tried to sketch the process of handling a policy from the creation to the enabling of it. We came up with various approaches one of the more interesting ones being the step wise (see figures \ref{fig:initialidea}, \ref{fig:initialidea:policysteps}). However this approach proved to not be as flexible and able to handle very detailed and complex polices. Our aim has been to make a great overview for the user. Therefor we chose another concept that are splitting each statement up into an open / closeable area to better encapsulate the logic. We found that you very often read one statement at a time, therefor you can have the statements open you are interested in, and won't be confused by statements not applicable to an area of interest. Within each statement we also decided to split up IF, THEN and ELSE into subsections because you in theory can add as many entries to each subsection as needed. Nonetheless the introduction of "`wildcard"' values for instance allows to manipulate an entire floors heaters, taking up much less space and work for the user to define then having to set up entries for each heater on a floor. See an example from the final view of a policy build at figure \ref{fig:statement}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\columnwidth]{building_policy_steps.png}
+\caption{Initial drawing - step wise build up.}
+\label{fig:initialidea:policysteps}
+\end{figure}
 
 \subsubsection{Speed}
 You need speed to save time! Therefore if your application takes 5 seconds every time someone clicks a button to load a page then that is bad! When a user sets up a policy, then they want to have it done in a fast and easy way. If the majority of the time is spent loading the page or saving updates all the time the users will simply not use the application. Therefor we have made a interface using Javascript / Jquery that lets the user setup and model any changes almost instantly before saving it to the database. This way they can experiment and set statements up without overwriting the policy until they are sure they want to save what they have done.
@@ -81,8 +95,10 @@ This will, if not represented properly, complicate the process of adding new pol
 Following the principles of Steve Krug's "Don't Make Me Think: Common Sense Approach to the Web"\cite{Krug:2005:DMM:1051204}, the functionality of a website should always let users accomplish their intended tasks as easy and directly as possible.
 Throughout the development of the front end site we have thrived to do so. And we have had two usability tests (more on this in the \nameref{chapter:evaluation} part) to uncover potential problems.
 
-\subsubsection{Layers of Abstraction}
+\subsubsection{Browser Compatibility}
+We have optimized for modern web browsers. The specific browsers we have tested our solution in are: Internet Explorer 9 and 10, Firefox, Chrome, Safari. 
 
+\subsubsection{Layers of Abstraction}
 With the policy engine there are different layers of abstraction: Visual UI, Textual UI, Engine.
 
 We have focused on the Visual UI enabling a graphical representation of the CRUD process. The other approach is having policies handled in a textual manner, and thereby forcing users to a write the statements in a policy, using a domain specific language. For a developer textual editing and console commands might be preferred, and may somewhat be quicker, while they know the inputs by heart. But the intended users of our policy engine, are most likely not developers or fans of typing in commands.

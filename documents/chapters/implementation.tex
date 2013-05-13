@@ -43,6 +43,13 @@ We have decided to have our policies stored in a database as we think it is bett
 \section{Building querying}
 To communicate with the building's server, we created the Connection class which provides methods for connecting to it and parses the JSON object received. There are several methods implemented that parse the response of the server and offer information such as - a list with the sensors in a room by providing the room id, a list with all the sensors of a certain type (e.g ac, light, heater etc.) The two most important methods are for retrieving the sensor's value and setting it to a specific one. 
 
+\begin{figure}
+	\centering
+    \includegraphics[scale=0.65]{images/policy_execution_flow.png} 
+	\caption{The execution flow of a policy.}
+	\label{fig:policy_execution_workflow}
+\end{figure}
+
 To retrieve a sensor's value we use the GetSensorValue method which takes as argument the sensor id, and returns a String with the value. By default, the last value sorted by timestamp that exists is returned.  
 \\ To set a value we use the method SetSensorValue which takes as parameters the sensor's id and the value we want to set. 
 \section{Executing policies} 
@@ -51,10 +58,3 @@ First, a list with the active policies at that time is retrieved. Then the state
 \\The first statements that are executed are the IfStatements. Here a check if the policy is a wildcard is done.  If it is a wildcard, then the statements are executed for each sensor by evaluating its value against the desired value. If the evaluation returns false, then the else statements are executed. If the policy is not a wildcard, an evaluation of the sensor's value it's done and depending on its result, the then statementes or else statements are executed. 
 In the evaluation part the actual value of the sensor is compared to the desired value using the operator defined in the expression. This evaluation returns true or false and so execution of the thenStatements is done if the evaluation is true otherwise the elseStatements are executed.
 In the execution of the then and else statements, the new sensor value is set in the server. 
-
-\begin{figure}
-	\centering
-    \includegraphics[scale=0.65]{images/policy_execution_flow.png} 
-	\caption{The execution flow of a policy.}
-	\label{fig:policy_execution_workflow}
-\end{figure}
