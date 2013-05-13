@@ -1,28 +1,27 @@
 %\section{Evaluation}
 %%%% ASLAK: Start by explaining why these areas are: 1. important 2. covers what is important
-In our project we have two areas that we have been evaluating. The first being if our policy engine is actually working and enforcing the defined policies. The other being the front end interface, testing to uncover potential usability issues that needed solving.
-
+In our project we have two areas that we have been evaluating. The first being wheter our policy engine is actually working and enforcing the defined policies. The other being the front-end interface, testing to uncover potential usability issues that needed solving.
+This is important as we need to see how well our system performs and to see what has been implemented from the requirements.
 \section{Policy Engine System Evaluation}
 \label{policy-engine-system-evaluation}
 
 \subsection{Log Testing}
 \label{log-test}
-Within the code of our software product we have used intensive logging. Doing so we have been able to verify the results and outcome while testing.
+We have logged system data which was important as to determine if the system is working correctly. Doing so we have been able to verify the results and outcome while testing and to discover bugs in our implementation.
+For quality control we have also been using these log files. Verifying our solution by cross-referencing every action during tests, and match it with the actual data stored in the database.
+One excerpt from the log file can be seen in figure \ref{fig:log}
 
-For quality control we have also been using these log-files. Verifying our solution by cross-referencing every action during tests, and match it with the actual data stored in the database.
-
-NOTE: ... Insert example log? ....
-
-%ATTENTION: Note: Insert an example from the log file
-
-%ATTENTION: Log every action and check timestamps, values, actions etc...
+\begin{figure}
+\center{
+\includegraphics[scale=0.5]{images\log.png}
+\caption{An excerpt from the log file.}\label{fig:log}}
+\end{figure}
 
 \subsection{JUnit Testing}
-To further test the software we made, we performed a range of JUnit Tests. JUnit is a unit testing framework for the Java programming language, which our software solution is based on. The unit test validate specified checks. 
-
-In simple terms. Imagine you made a function that adds 2 \& 2. You know the outcome should be 4. So you make a JUnit test that verify the result using assertions. If the outcome compared is indeed 4, the JUnit test returns the boolean value \textit{true}, and \textit{false} if not.
-
-Imagine however that the software is much larger, and much more complex - JUnit testing becomes very useful.
+To further test the software we made, we performed a range of JUnit Tests. After the creation of the domain classes we have created JUnit test to verify if everything works as expected. 
+One example of these test can be seen in \ref{appendix:junit-test}. In this test we set the temperature of a room to 11 degrees and we want to turn on the heater in the room if the temperature is equal to 10 degrees, otherwise we want to roll down the blinds. The test will succed when checking if the blinds are rolled down, as the temperature is set to 11 degrees. 
+We have employed tests for checking all the posibilities of operations against the operators. 
+The result was that our IF-THEN-ELSE concept implementation performed as expected. 
 
 \section{Usability Test}
 \label{sec:usability-test}
