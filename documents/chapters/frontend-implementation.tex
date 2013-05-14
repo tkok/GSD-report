@@ -88,7 +88,7 @@ Up to 0.1 seconds
 \\The system will loose the users’ attention. They start doing other things or switch to another application
 \end{quotation}
 
-Based on this it is important to optimize the web site, both for the code generated on the server, but also to optimize the front-end since around 80\% of the load time \cite{responsetimes} of a website is spend on parsing the generated HTML document, execute javascript and download any external resources. There are a number of things you can do, which we will not go in detail with but just touch on. A few points we are aware of is where and in what order javascript and css is located and loaded, javascript can be loaded last as javascript usually is loaded after a page is fully parsed. Furthermore, you can set preferences for cache and reduce the number of external files to load in an application by combining various javascript files into one and also combine CSS files.
+Based on this it is important to optimize the web site, both for the code generated on the server, but also to optimize the front-end since around 80\% of the load time \cite{responsetimes} of a website is spend on parsing the generated HTML document, execute javascript and download any external resources. There are a number of things you can do, which we will not go in detail with but just touch on. A few points we are aware of is where and in what order javascript and css is located and loaded, javascript can be loaded last as javascript usually is loaded after a page is fully parsed. Furthermore, you can set preferences for cache and reduce the number of external files to load in an application by combining various javascript files into one and also combine CSS files. 
 
 \subsubsection{Color Coding}
 Color can be a powerful tool to improve the usefulness of an information display in a wide variety of areas if color is used properly. Conversely, the inappropriate use of color can seriously reduce the functionality of a display system \cite{colorcoding}.
@@ -98,20 +98,13 @@ We are using color contrasts to express information. We have used this concept t
 We have taken into account that red-blue and yellow-blue color combinations are generally safe for color blind people. Having this in mind can lead to a much higher ability to use color coding effectively. This will still cause problems for those with monochromatic color blindness \cite{colorblind}, but it is still something worth considering.
 
 \subsubsection{Responsive Design}
-Responsive web design is a web design approach aimed at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from desktop computer monitors to mobile phones). While we haven't directly optimized for mobile we have had the responsive design idea in mind when setting up the design. What we have assured is that the user interface is adjusted to the screen size of the user. Meaning if you for instance use a full HD resolution (1920x1080) the interface will utilize this space (see examples on figures \ref{fig:policylist}, \ref{fig:policy}, \ref{fig:statement}).
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\columnwidth]{policylist.png}
-\caption{Illustrating the policy list-view.}
-\label{fig:policylist}
-\end{figure}
+Responsive web design is a web design approach aimed at crafting sites to provide an optimal viewing experience, easy reading and navigation with a minimum of resizing, panning, and scrolling across a wide range of devices (from desktop computer monitors to mobile phones). While we haven't directly optimized for mobile we have had the responsive design idea in mind when setting up the design. What we have assured is that the policy editor is adjusted to the screen size of the user. Meaning if you for instance use a full HD resolution (1920x1080) the interface will utilize this space and boxes with expressions will position themselves accordingly (see example on figure \ref{fig:statement}).
 
 \subsection{Policy Editor}
 
 \subsubsection{Managing Policies}
 \label{managing-policies}
-In order to make it simple and fast to manage a policy we have split the interface for a policy up into sections and sub sections. We have two sections: Policy Information and Policy Statements. In Policy Information, all the content: name, description and time interval are defined. Also if the policy should be active, and run on the Policy Engine, can be defined in this section. The Policy Statements section is where all the conditions and actions are defined. We have added a sub section for each statement to improve the readability and overview of what is executed and what is paired together (see figure \ref{fig:policy}).  
+In order to make it simple and fast to manage a policy we have split the interface for a policy up into sections and sub sections. We have two sections: Policy Information and Policy Statements. In Policy Information, all the content: name, description and time interval are defined. Also if the policy should be active, and run on the Policy Engine, can be defined in this section. The Policy Statements section is where all the expressions are constructed. We have added a sub section for each statement to improve the readability and overview of what is executed and what is paired together (see figure \ref{fig:policy}).  
 
 \begin{figure}[ht]
 \centering
@@ -120,11 +113,11 @@ In order to make it simple and fast to manage a policy we have split the interfa
 \label{fig:policy}
 \end{figure}
 
-Within a statement there are three sub sections: IF, THEN, ELSE (see figure \ref{fig:statement}). For each headline in this setup there is a "`+ New"' button that can be clicked. This will add a new entry to this particular area. While this is done we alter the policy object in the background so once the user are satisfied with the setup of statements, it can be saved with a click on the update / save button.
+Within a statement there are three sub sections: IF, THEN, ELSE (see figure \ref{fig:statement}). For each headline in this setup there is a "+ New" button that can be clicked. This will add a new entry to this particular area. While this is done we alter the policy Javascript object in the background so once the user are satisfied with the setup of statements, it can be saved with a click on the update / save button.
 
 To help the user find the correct sensor / wildcard option, we have implemented an autocomplete functionality. This lets the user start typing a value and then the autocomplete will come up with all the matching elements available.
 
-To make it take less space and work to define a statement that should apply to an entire floor or room, we have introduced wildcard options. A use case can for instance be: A user wants to work with the blinds on the entire first floor: floor1-blinds is then the option to pick.
+To make it take less space and work to define a statement that should apply to an entire floor or room, we have introduced wildcard options. All wildcard options are manipulating more then one element all start with "Wildcard". A use case for a wildcard can for instance be: A user wants to work with the blinds on the entire first floor: wildcard-floor-1-blind-setpoint is then the option to pick.
 
 \begin{figure}[ht]
 \centering
@@ -133,31 +126,38 @@ To make it take less space and work to define a statement that should apply to a
 \label{fig:statement}
 \end{figure}
 
-\subsection{Use Case View}
-The solution's final use case diagram is shown in Figure \ref{fig:usecasediagram}.
-
 \begin{figure}[ht]
 \centering
-%\includegraphics[width=\columnwidth]{usecasediagram.png}
-\caption{Use Case Diagram (that is missing!)}
+\includegraphics[width=\linewidth]{use-case-diagram.png}
+\caption{Use case diagram.}
 \label{fig:usecasediagram}
 \end{figure}
 
-% ATTENTION: Short description of usecase
+%%\begin{figure}[ht]
+%%\centering
+%%\includegraphics[width=\columnwidth]{policylist.png}
+%%\caption{Illustrating the policy list-view.}
+%%\label{fig:policylist}
+%%\end{figure}
+
+\subsection{Use Case View}
+The solution's final use case diagram is shown in Figure \ref{fig:usecasediagram}.
+
+The user starts on the policy list view. Here the user have two possible paths to take: Modify a policy or create a new. Within a policy you can modify details, enable / disable it, setup expressions or delete it.  
 
 \subsection{Usability}
 Seeing policies as rules for rooms in a building, with multiple sensors in each and every room, that can affect multiple actuators - not only in one room, but all of the rooms in a building: It leaves the user with a lot of selections. 
 This will, if not represented properly, complicate the process of adding new policies.
 
 Following the principles of Steve Krug's "Don't Make Me Think: Common Sense Approach to the Web"\cite{Krug:2005:DMM:1051204}, the functionality of a website should always let users accomplish their intended tasks as easy and directly as possible.
-Throughout the development of the front end site we have thrived to do so. And we have had two usability tests (more on this in the \nameref{chapter:evaluation} part) to uncover potential problems.
+Throughout the development of the front end site we have strived to do so. And we have had two usability tests (more on this in the \nameref{chapter:evaluation} part) to uncover potential problems.
 
 \subsubsection{Browser Compatibility}
 We have optimized for modern web browsers. The specific browsers we have tested our solution in are: Internet Explorer 9 and 10, Firefox, Chrome, Safari. 
 
 \subsubsection{Layers of Abstraction}
-With the policy engine there are different layers of abstraction: Visual UI, Textual UI, Engine.
+With a policy engine there are different layers of abstraction: Visual UI, Textual UI, Engine.
 
-We have focused on the Visual UI enabling a graphical representation of the CRUD process. The other approach is having policies handled in a textual manner, and thereby forcing users to a write the statements in a policy, using a domain specific language. For a developer textual editing and console commands might be preferred, and may somewhat be quicker, while they know the inputs by heart. But the intended users of our policy engine, are most likely not developers or fans of typing in commands.
+We have focused on the Visual UI enabling a graphical representation of the CRUD (Create, Read, Update Delete) process. The other approach is having policies handled in a textual manner, and thereby forcing users to a write the statements in a policy, using a domain specific language. For a developer textual editing and console commands might be preferred, and may somewhat be quicker, while they know the inputs by heart. But the intended users of our policy engine, are most likely not developers or fans of typing in commands.
 
 In a future version of the policy engine, both methods could be implemented to function in parallel, giving a user both choices, and also the capability of copy and paste policies quickly.
