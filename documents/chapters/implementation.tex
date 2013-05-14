@@ -8,7 +8,7 @@ The system has been implemented using Java and Servlets for the back-end, and JS
 A serialized policy to JSON has the following structure (see Figure \ref{fig:json_policy})
 It contains a statement object which is composed of the objects conditionalExpressions, thenStatements and elseStatements. 
 The conditionalExpressions object describes the IfStatements and has information about the sensor id, the prefix operator, and the operator. The thenStatements and elseStatements have information about the desired value of the sensor and the id of it. 
-For this example, the gain value of the light sensors on the floor 0 are compared to the desired value, 1 with the help of the "EQUALS" operator. If the gain value of a sensor is equal to 1, then the light is turned of by setting its gain to 0. 
+For this example, the gain value of the light sensors on the floor 0 are compared to the desired value, 1 with the use of the "EQUALS" operator. If the gain value of a sensor is equal to 1, then the light is turned of by setting its gain to 0. 
 
 \begin{figure}
 	\centering
@@ -29,6 +29,13 @@ There are two interfaces that describe the methods of Statements and Value class
 \end{figure}
 
 A statement can either be a SetStatement or an IfStatement. The SetStatement sets an value in the building server (in effect it is an actuator). It is possible to have nested IfStatements, making the policies both flexible and simple. An IfStatement can contain multiple expressions that all are being anded when evaluated. If the user wants to make an IfStatement with or between the expressions, will have to use a nested IF. The optimal solution to this would be to make a safe left-recursive model. We did not have enough time for this, but we will elaborate further on this subject in the \nameref{chapter:discussion} section. 
+Using the example from \ref{fig:json_policy}, the IF-THEN-ELSE concept functions as shown in Figure \ref{fig:if-then-else_example}.
+\begin{figure}
+	\centering
+    \includegraphics[scale=0.55]{images/IF-THEN-ELSE_example.png} 
+	\caption{A concrete example of IF-THEN-ELSE based on the policy explained in Figure \ref{fig:json_policy}.}
+	\label{fig:if-then-else_example}
+\end{figure}
 
 An Expression has three variables, the sensorId, the operator and a value of type Value. When the policy engine is running, each expression is being evaluated. The current value of the sensor is fetched and compared to the desired value using the operator. An expression can contain the following operators; <, >, <=, >=, !=,=. 
 If the evaluation of the expression is true, then the statement is executed.
