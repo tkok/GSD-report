@@ -93,7 +93,9 @@ Based on this it is important to optimize the web site, both for the code genera
 \subsubsection{Color Coding}
 Color can be a powerful tool to improve the usefulness of an information display in a wide variety of areas if color is used properly. Conversely, the inappropriate use of color can seriously reduce the functionality of a display system \cite{colorcoding}.
 
-Colors send signals to the user sub-consciously, so therefore you can make use of this with things like buttons and colored areas. We have used this idea to color the different boxes under a statement, to improve the readability and make it more intuitive. We used a red color for the IF boxes and a green color for the THEN and ELSE boxes. The reason for this is that the IF is a "`get"' type and the other two is a "`set"' type.
+We are using color contrasts to express information. We have used this concept to color the different boxes under a statement to improve the readability. 
+
+We have taken into account that red-blue and yellow-blue color combinations are generally safe for color blind people. Having this in mind can lead to a much higher ability to use color coding effectively. This will still cause problems for those with monochromatic color blindness \cite{colorblind}, but it is still something worth considering.
 
 \subsubsection{Responsive Design}
 Responsive web design is a web design approach aimed at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from desktop computer monitors to mobile phones). While we haven't directly optimized for mobile we have had the responsive design idea in mind when setting up the design. What we have assured is that the user interface is adjusted to the screen size of the user. Meaning if you for instance use a full HD resolution (1920x1080) the interface will utilize this space (see examples on figures \ref{fig:policylist}, \ref{fig:policy}, \ref{fig:statement}).
@@ -108,6 +110,7 @@ Responsive web design is a web design approach aimed at crafting sites to provid
 \subsection{Policy Editor}
 
 \subsubsection{Managing Policies}
+\label{managing-policies}
 In order to make it simple and fast to manage a policy we have split the interface for a policy up into sections and sub sections. We have two sections: Policy Information and Policy Statements. In Policy Information, all the content: name, description and time interval are defined. Also if the policy should be active, and run on the Policy Engine, can be defined in this section. The Policy Statements section is where all the conditions and actions are defined. We have added a sub section for each statement to improve the readability and overview of what is executed and what is paired together (see figure \ref{fig:policy}).  
 
 \begin{figure}[ht]
