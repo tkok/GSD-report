@@ -1,6 +1,6 @@
 %\section{Evaluation}
 %%%% ASLAK: Start by explaining why these areas are: 1. important 2. covers what is important
-In our project we have two areas that we have been evaluating. The first being wheter our policy engine is actually working and enforcing the defined policies. The other being the front-end interface, testing to uncover potential usability issues that needed solving.
+In our project we have two areas that we have been evaluating. The first being weather our policy engine is actually working and enforcing the defined policies. The other being the front-end interface, testing to uncover potential usability issues that needed solving.
 This is important as we need to see how well our system performs and to see what has been implemented from the requirements.
 \section{Policy Engine System Evaluation}
 \label{policy-engine-system-evaluation}
@@ -19,7 +19,7 @@ One excerpt from the log file can be seen in figure \ref{fig:log}
 \end{figure}
 
 \subsection{JUnit Testing}
-To further test the software we made, we performed a range of JUnit Tests. After the creation of the domain classes we have created JUnit test to verify if everything works as expected. 
+To further test the software we made, we performed a range of JUnit Tests~\cite{junit}. After the creation of the domain classes we have created JUnit test to verify if everything works as expected. 
 One example of these test can be seen in \ref{appendix:junit-test}. In this test we set the temperature of a room to 11 degrees and we want to turn on the heater in the room if the temperature is equal to 10 degrees, otherwise we want to roll down the blinds. The test will succed when checking if the blinds are rolled down, as the temperature is set to 11 degrees. 
 We have employed tests for checking all the posibilities of operations against the operators. 
 The result was that our IF-THEN-ELSE concept implementation performed as expected. 
