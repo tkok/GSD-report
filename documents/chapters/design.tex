@@ -56,7 +56,7 @@ The policy engine consists of a servlet and domain classes for the expression la
 
 A statement can either be a SetStatement or an IfStatement. The SetStatement sets a value in the simulator. The backend implementation allows nested If-statements, making the policies both flexible and simple. 
 
-An If-statement can contain multiple expressions that all are being and'ed when evaluated. If the user wants to make an If-statement with or'ed expressions, she will have to use a nested if. The optimal solution to this would have been to make an expression recursion safe model. We did not have enough time for this, but we will elaborate further on this subject in the discussion (see \ref{sec:product}). 
+An If-statement can contain multiple expressions that all are being and'ed when evaluated. If the user wants to make an If-statement with or'ed expressions, she will have to use a nested if. The optimal solution to this would have been to make an expression recursion safe model. We did not have enough time for this, but we will elaborate further on this subject in the discussion~\ref{subsec:improvements}. 
 
 The statements are organised as a list. Each statement will be executed (set) or evaluated (if) in the order that they are persisted. Each if-statement has two lists that contain the statements belonging to the then-clause and the else-clause.
 
