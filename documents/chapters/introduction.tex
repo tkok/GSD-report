@@ -1,5 +1,5 @@
 %\section{Introduction} \label{sec:introduction}
-The research field of building- and home automation experiences a lot of growth -- not least because of the promise to reduce energy consumption by more intelligent control, but also due to the possibility of heightened human comfort. Constructing resource efficient buildings makes sense, both in a political and economical perspective. In \cite{janssen2004towards} it is stated that residential buildings use about 82\% in total energy consumption on space and water heating. Electric appliances uses 11\%. One will be able to save on these sources by using policies. Policies can be seen as a general rule that determines what to do in sense of controlling lights, heat, blinds etc. An example of a policy could be turning off heating at midnight and turn of lights in room where there is nobody present. 
+The research field of building- and home automation experiences a lot of growth -- not least because of the promise to reduce energy consumption by more intelligent control, but also due to the possibility of heightened human comfort. Constructing resource efficient buildings makes sense, both in a political and economical perspective. In \cite{janssen2004towards} it is stated that residential buildings use about 82\% in total energy consumption on space and water heating. Electric appliances uses 11\%. One will be able to save on these sources by using policies. Policies can be seen as a general rule that determines what to do in sense of controlling lights, heat, blinds etc. An example of a policy could be turning off heating at midnight and turn of lights in rooms where there is nobody present. 
 Manually controlling an energy-saving policy is very time-consuming, inefficient task and the user has to know a lot of information on different equipment. As well as information about the building itself. The process is however achievable,  using building automation. 
 
 Regulating the environment of buildings to heighten human comfort, requires that building components can communicate and be controlled in a fashion that seems intuitive for human beings. Buildings today might come equipped with a suite of sensors and actuators, opening up for a degree of customizable control. Our collective need is that buildings can adapt to the users and the sensor-perceived environment. We use the term policy to describe a building automation program, and the term policy engine as the overall software entity that controls the aforementioned policies.
@@ -10,7 +10,7 @@ By employing a policy engine, with access to the buildings sensors and actuators
 
 As stated in~\cite{ba-short}, efficient energy saving is only possibly with building automation, known as ``BA'': \textit{Worldwide, there is no doubt that efficient energy saving is only possible with modern BA based on networking in all levels of abstraction}.
 
-This project was defined in the course Global Software Development at IT University of Copenhagen\footnote{Hereby denoted: ITU}. Our global development team consists of 5 students from ITU and 4 from Strathmore University in Nairobi, Kenya. The team is provided with a Building Simulator, making up for the lack of a real constructional building. The complexity with integrating hardware and communication protocols are thus avoided. However the simulator has provided other complexities which will be evident later in this paper. 
+This project was defined in the course Global Software Development at IT University of Copenhagen\footnote{Hereby denoted: ITU}. Our global development team consists of five students from ITU and four from Strathmore University in Nairobi, Kenya. The team is provided with a Building Simulator, making up for the lack of a real constructional building. The complexity with integrating hardware and communication protocols are thus avoided. However the simulator has provided other complexities which will be evident later in this paper. 
 
 Throughout the development of this project the focus has been geared towards the simulator. The end product is a web-based management application, that allows for centralized flow, and control between sensors and actuators in the simulated building. This is achieved by implementing a policy engine that allows for automated actuator-responses based on sensor feedback. An example of this could be closing the blinds in excess sunlight or turning off the heaters while windows are open.
 
@@ -27,10 +27,10 @@ Modern buildings get more and more complex -- from the type of materials being u
 
 A part of the whole 'go green' concept is to control your energy and natural resource usage. Many companies have buildings that are either heated or cooled (or both), have lighting, appliances and server rooms to name a few. They may already be equipped intelligent heating systems, HVAC systems\footnote{Heating, Ventilation, and Air Conditioning} and AC's\footnote{Air Conditioning} but many of these systems are typically proprietary and impossible \textemdash or very hard\textemdash to integrate with. As mentioned earlier this project integrates into a Building Simulator. This makes our task more simple compared to real work applications. We do not have to worry about actual sensor- and actuator hardware, wiring, costs, communication protocols, existing protocols, coverage of wireless communication signals and so forth.
 
-We assume that the Building Simulator \textit{is} the building. Our system is therefore \textit{open} compared to proprietary, since all it takes to access (e.g. the temperature in a room) is a http get operation with the building id and sensor in question. A everyday example could be a janitor, who might need to go to a room physically to check its temperature, and adjust the heater in that room, several times a day to achieve and maintain the desired temperature. Our governing policies makes it up for a building janitor, or at least the trivial work with adjusting room temperatures and the likes. Human staff starts out by defining the policies that the building needs. Then we can imagine the virtual janitor, issuing http get operations all day, to check the sensors mentioned in those policies. The policies consists of sensor-conditional behaviour that will adjust the actuators continuously. This is done by issuing http post commands to the building simulator with sensor id and the desired value.
+We assume that the Building Simulator \textit{is} the building. Our system is therefore \textit{open} compared to proprietary, since all it takes to access (e.g. the temperature in a room) is a http get operation with the building id and sensor in question. An everyday example could be a janitor, who might need to go to a room physically to check its temperature, and adjust the heater in that room, several times a day to achieve and maintain the desired temperature. Our governing policies makes up for a building janitor, or at least the trivial work with adjusting room temperatures and the likes. Human staff starts out by defining the policies that the building needs. Then we can imagine the virtual janitor, issuing http get operations all day, to check the sensors mentioned in those policies. The policies consists of sensor-conditional behaviour that will adjust the actuators continuously. This is done by issuing http post commands to the building simulator with sensor id and the desired value.
 
 \section{Problem} \label{sec:problem}
-With the ability to manage every sensor in a given building, one can assume that the task of controlling these gets progressively \textemdash for each number of additional sensor and actuator\textemdash more complex. Any additional concern will add further complexity, such as optimizing the control to prioritize both economic and human comfort. One needs to consider this challenge: What good is a highly advanced building if the task of controlling it is just as complex?
+With the ability to manage every sensor in a given building, one can assume that the task of controlling these gets progressively \textemdash for each number of additional sensor and actuator\textemdash more complex. Any additional concern will add further complexity, such as optimizing the control to prioritise both economic and human comfort. One needs to consider this challenge: What good is a highly advanced building if the task of controlling it is just as complex?
 
 We seek to design a system where FM can define a set of policies they believe is needed, based on their experience with the building. We do not expect FM to be IT experts, but we do expect them to be able to use a modern browser and be familiar with the sensor id's used in the building.
 
@@ -38,15 +38,15 @@ Our main consideration in this paper is: \textit{Providing a web-based infrastru
 
 In addition to the general problem from above, we further want to point out these challenges:
 \begin{enumerate}
-	\item The rating of proposed solution's usability.
+	\item The level of proposed solution's usability.
 	\item Policy time control and manual override.
-	\item The use of complex policy data structures on both frontend and backend.
+	\item The use of complex policy data structures on both front-end and back-end.
 \end{enumerate}
 
 \section{Learning Goals} \label{sec:learninggoals}
-The project in itself consists of two widely different aspects. They are the global software development and the policy engine. The new aspect in the project life cycle is for us how to collaborate with team members distributed in different continents and countries, with many differences and thus challenges to overcome.
+The project in itself consists of two widely different aspects. They are the global collaboration and the policy engine. The new aspect in the project life cycle is for us how to collaborate with team members distributed in different continents and countries, with many differences and thus challenges to overcome.
 
-These two aspects are also the ones the main learning goals are derived from. In this regard the goals can be grouped into two different parts. The first being how to collaborate across different countries and the challenges that this potentially could cause, including how to manage the team, how to communicate, how to increase performance and the likes. The secondary being how we can solve the technical project and deliver a working prototype of a policy engine, including creating the domain model, data structure, creating the actual policy engine in a object oriented-manner and tying this together with the visual and user friendly frontend.
+These two aspects are also the ones the main learning goals are derived from. In this regard the goals can be grouped into two different parts. The first being how to collaborate across different countries and the challenges that this potentially could cause, including how to manage the team, how to communicate, how to increase performance and the likes. The secondary being how we can solve the technical project and deliver a working prototype of a policy engine, including creating the domain model, data structure, creating the actual policy engine in a object oriented-manner and tying this together with the visual and user friendly front-end.
 
 We could summarize the learning goals to be: 
 \begin{itemize}
@@ -55,12 +55,12 @@ We could summarize the learning goals to be:
 \end{itemize}
 
 \section{Requirements} \label{sec:requirements}
-The requirements of the project are stated in a very open-ended manner, with only a few descriptive requirements to the product and process. These are formulated as requirements to the product and process. They are:
+The requirements of the project are stated in a very open-ended manner, with only a few descriptive requirements. These are formulated as requirements to the product and process. They are:
 
 \textbf{Product}
 \begin{itemize}
 	\item The students analyse their solution from their chosen sensors and actuators requirements (and additional requirements they can think of) into functionality for their application (30\%).
-	\item The students must design and implement a Web/Android application to monitor, control and visualize policies in a building (20\%).
+	\item The students must design and implement a Web/Android application to monitor, control and visualise policies in a building (20\%).
 	\item The students must describe and evaluate their solution as used by facility people as metrics. Additional metrics can be considered and will be taking into consideration by the examiners (20\%).
 \end{itemize}
 
