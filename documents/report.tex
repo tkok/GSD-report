@@ -16,72 +16,6 @@
 \usepackage[plainpages=false]{hyperref}
 \usepackage{url}
 \usepackage{framed}
-%\usepackage{listings}
-%\usepackage{bera}% optional: just to have a nice mono-spaced font
-%\usepackage{xcolor}
-
-%\colorlet{punct}{red!60!black}
-%\definecolor{background}{HTML}{EEEEEE}
-%\definecolor{delim}{RGB}{20,105,176}
-%\colorlet{numb}{magenta!60!black}
-
-%\lstdefinelanguage{json}{
-    %basicstyle=\footnotesize\ttfamily
-    %numbers=left,
-    %numberstyle=\scriptsize,
-    %stepnumber=1,
-    %numbersep=8pt,
-    %showstringspaces=false,
-    %breaklines=true,
-    %frame=lines,
-    %backgroundcolor=\color{background},
-    %literate=
-     %*{0}{{{\color{numb}0}}}{1}
-      %{1}{{{\color{numb}1}}}{1}
-      %{2}{{{\color{numb}2}}}{1}
-      %{3}{{{\color{numb}3}}}{1}
-      %{4}{{{\color{numb}4}}}{1}
-      %{5}{{{\color{numb}5}}}{1}
-      %{6}{{{\color{numb}6}}}{1}
-      %{7}{{{\color{numb}7}}}{1}
-      %{8}{{{\color{numb}8}}}{1}
-      %{9}{{{\color{numb}9}}}{1}
-      %{:}{{{\color{punct}{:}}}}{1}
-      %{,}{{{\color{punct}{,}}}}{1}
-      %{\{}{{{\color{delim}{\{}}}}{1}
-      %{\}}{{{\color{delim}{\}}}}}{1}
-      %{[}{{{\color{delim}{[}}}}{1}
-      %{]}{{{\color{delim}{]}}}}{1},
-%}
-%
-%%DEFINE JSON
-%\lstset{ %
-  %language=json,                  % the language of the code
-  %basicstyle=\ttfamily\footnotesize,       % the size of the fonts that are used for the code
-  %numbers=left,                   % where to put the line-numbers
-  %numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
-  %stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
-                                  %% will be numbered
-  %numbersep=5pt,                  % how far the line-numbers are from the code
-  %backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
-  %showspaces=false,               % show spaces adding particular underscores
-  %showstringspaces=false,         % underline spaces within strings
-  %showtabs=false,                 % show tabs within strings adding particular underscores
-  %frame=single,                     % adds a frame around the code
-  %rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-  %tabsize=2,
-  %captionpos=b,                   % sets the caption-position to bottom
-  %breaklines=true,
-  %breakatwhitespace=true,
-  %%title=\lstname,                 % show the filename of files included with \lstinputlisting;
-  %keywordstyle=\color{keywords},
-  %commentstyle=\color{comments},
-  %stringstyle=\color{strings},
-  %%escapeinside={\%*}{*)},        % if you want to add LaTeX within your code
-  %%morekeywords={*,...},          % if you want to add more keywords to the set
-  %%deletekeywords={}           % if you want to delete keywords from the given language
-%}
-%%END DEFINE JSON
 
 \usepackage[a4paper]{geometry}
 \geometry{top=1.8in, bottom=1.8in, left=1.5in, right=1.5in}
@@ -111,10 +45,7 @@
 \clearpage
 \pagenumbering{arabic}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Actual content
 
 \chapter{Introduction}\label{chapter:introduction}
 \input{chapters/introduction}
@@ -142,13 +73,11 @@
 
 \input{chapters/conclusion}
 
-\bibliography{gsd}{}%\label{bib:gsd}
+% References and appendices
+
+\bibliography{gsd}{}
 \bibliographystyle{plain}
 \addcontentsline{toc}{chapter}{References}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
 
@@ -163,9 +92,5 @@
 \section{Tests}
 
 \input{appendix/project-plan.tex} 
-
 \input{appendix/appendix-doodle.tex} 
-
-
 \end{document}
-
