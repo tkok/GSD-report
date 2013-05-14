@@ -1,7 +1,7 @@
 %\section{Evaluation}
 %%%% ASLAK: Start by explaining why these areas are: 1. important 2. covers what is important
 In our project we have two areas that we have been evaluating. The first being wheter our policy engine is actually working and enforcing the defined policies. The other being the front-end interface, testing to uncover potential usability issues that needed solving.
-This is important as we need to see how well our system performs and what has been implemented from the requirements.
+This is important as we need to see how well our system performs and to see what has been implemented from the requirements.
 \section{Policy Engine System Evaluation}
 \label{policy-engine-system-evaluation}
 
@@ -19,8 +19,8 @@ One excerpt from the log file can be seen in figure \ref{fig:log}
 \end{figure}
 
 \subsection{JUnit Testing}
-To test parts of our system, we performed a range of JUnit Tests. After the creation of the domain classes we have created JUnit test to verify if everything works as expected. 
-One example of these tests can be seen in \ref{appendix:junit-test}. In this test we set the temperature of a room to 11 degrees and we want to turn on the heater in the room if the temperature is equal to 10 degrees, otherwise we want to roll down the blinds. The test will succed when checking if the blinds are rolled down, as the temperature is set to 11 degrees. 
+To further test the software we made, we performed a range of JUnit Tests. After the creation of the domain classes we have created JUnit test to verify if everything works as expected. 
+One example of these test can be seen in \ref{appendix:junit-test}. In this test we set the temperature of a room to 11 degrees and we want to turn on the heater in the room if the temperature is equal to 10 degrees, otherwise we want to roll down the blinds. The test will succed when checking if the blinds are rolled down, as the temperature is set to 11 degrees. 
 We have employed tests for checking all the posibilities of operations against the operators. 
 The result was that our IF-THEN-ELSE concept implementation performed as expected. 
 %%Rasmus: jUnit test reference is missing
@@ -61,9 +61,12 @@ During the tests, candidates where only given one tasks at a time to focus on - 
 The candidates where assigned the following tasks. The questions is designed so that the candidates makes use of all the features in policy engine:
 
 \begin{framed}
-To save energy the heating throughout the building is automatically turned OFF around 17:00. However this Wednesday around 19:00 - 22:00 an exclusive presentation is held in room number 5 on 1. floor.
-You are asked to maintain a temperature at 21 degrees throughout the presentation.
+The administration
+\end{framed}
 
+\begin{framed}
+To save energy the university wants to have the heating turned OFF automatically at 17:00. However this Wednesday around 19:00 - 22:00 an exclusive presentation is held in room number 5 on 1. floor.
+You are asked to maintain a temperature at 21 degrees in that room throughout the presentation.
 \end{framed}
 
 
@@ -116,32 +119,4 @@ We believe that there is always room for improvement. And so we have made some c
 
 %ATTENTION: Note: Insert results from think aloud test and write what we have learned from this
 
-\section{Technology}
-In the beginning of the project we talked about the many technologies available for web development. Obviously there are many approaches to the same solution. Focussing on working as a team, that all have different background experiences we decided to individually write down our development qualifications.
 
-From all of the qualifications in the group, we joined together and made a top three technology approached (see Tabel \ref{tbl:dev_environment}. Every team member voted 1, 2 and 3 on an development approach. 1 being the most preferred, and three the less preferred. 
-
-\begin{table}[h]
-\caption{Team members experience with different technologies}\label{tbl:dev_environment}
-    \begin{tabular}{rccccccccc}
-            & \rotatebox{90}{Kasper} & \rotatebox{90}{Thomas} & \rotatebox{90}{Stefan} & \rotatebox{90}{Rasmus} & \rotatebox{90}{Nicolas} & \rotatebox{90}{Steven} & \rotatebox{90}{Cecil} & \rotatebox{90}{Tom} & \rotatebox{90}{Lucy} \\
-    PHP & 2      & 1      & 3      & 3      & 1   &1 &1 &- &1    \\
-    C\#.Net         & 3      & 3      & 2      & 1      & 3    &3 &1 &- &3  \\
-    Java      & 1      & 2      & 1      & 2      & 2     &2 &3 &- &3  \\
-    \end{tabular}
-\end{table}
-Note that Tom in Tabel \ref{tbl:dev_environment} didn't want to share his experience with the rest of team. Therefore the comparison table was never completed.
-
-One of the challenges in this project was technology readiness. Every team member has a preferred development language, which ultimately led to a long debate on settling with a development language, and what kind of framework the group should use.
-The problem was that: either way - some team members would have a harder time participating with implementation than others.
-
-Also some members had already lots of experience in development web applications, while other had very little. Not everyone was familiar with MVC based development, which for those unfamiliar became a challenge. The overall problem was simply having different level of knowledge regarding web development and technologies.
-
-Ultimately however the group decided to go with Java as the main programming language, along with Javascript for front-end parts.
-
-Various milestone for the project was planned and the different implementation tasks, was assigned to different team members. Most noticeable the team unintentionally created subgroups: divided in team members working with front-end tasks, and team members working with backend tasks.
-However, frequent meetings and online conversations led to positive awareness on what everyone was working with.
-
-Furthermore the team utilize an online project management site, from which the team members could keep each other informed of work in progress. It also included a Gantt chart scheduling the entire project development.
-
-Also Github was used to easily share and version code and documentation between team members. This made it possible for everyone to see changes and follow ongoing development.
