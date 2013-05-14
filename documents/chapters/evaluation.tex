@@ -69,30 +69,30 @@ We conducted two Think Aloud Tests, aimed at fixing any usability issues found d
 \label{fig:usabilitycurve}
 \end{figure}
 
-We have not directly targeted Facility Managers in our usability tests, as we simply did not have the time to gather enough test persons with a relevant job function. However instead we gathered a broad range of random test persons with different backgrounds and age.
+We have not directly targeted Facility Managers in our usability tests, as we simply did not have the time to gather enough test persons with a relevant job function but instead we gathered some random persons with different backgrounds and age.
 
 \subsubsection{Tasks}
-We arranged 10 tasks for the participants to perform. Note however that the tests where held individually, but they were all given the same set of tasks. 
+We arranged 10 tasks for the participants to perform. The same tasks have been given to all participants but these were performed indivdually.
 During the tests, participants where only given one task at a time to focus on - using small task cards.
 
 Before the test started we explained the purpose of the policy engine, and verbally gave them an example of a user scenario.
 
-We briefly introduced the participant to a map of the building and the rooms involved. We also gave an example list of sensor and actuator names to make them familiar with the elements involved, including basic knowledge of IF, AND, THEN statements and wildcard operators. The questions were designed so that the test persons used all of the features available in the policy engine. The user interface contain an \textit{live auto-complete function} so that the participant can easily set a desired sensor/actuator without knowing the exact name. See section \ref{managing-policies} for more details.
+We briefly introduced the participant to a map of the building and the rooms involved. We also gave an example list of sensor and actuator names to make them familiar with the elements involved, including basic knowledge of IF, THEN, ELSE statements, operators and wildcards. The questions were designed so that the test persons used all of the features available in the policy engine. The user interface contains a \textit{auto-complete function} so that the participant can easily set a desired sensor/actuator without knowing the exact name. See section \ref{managing-policies} for more details.
 
 The participants where assigned the following tasks:
 
 \begin{framed}
-Create a policy that turns the AC on in Room 1, 1. floor and name it "Cooling".
+Create a policy that turns the AC on in Room 1, 1st floor and name it "Cooling".
 \end{framed}
 The 1st task was designed to see how the participant would try to create new policies - and how they would set the name.
 
 \begin{framed}
-Modify the "Cooling" policy just created to affect both Room 1, 1. floor and Room 2, 2. floor.
+Modify the "Cooling" policy just created to affect both Room 1, 1st floor and Room 2, 2nd floor.
 \end{framed}
 The 2nd task was designed to see how the participant handled modifying an existing policy.
 
 \begin{framed}
-Create a policy that turns on blinds in all rooms for every floor in the building and name the policy "Sun".
+Create a policy that rolls down the blinds in all rooms for every floor in the building and name the policy "Sun".
 \end{framed}
 The 3rd task was designed to see how the participant handled the "wildcard" auto-complete feature.
 
@@ -114,37 +114,37 @@ The 6th task showed the removal of policies.
 The tasks 7-10 were designed to be harder and the participant was forced to work with complex expressions.
 
 \begin{framed}
-To save energy the university wants to have the heating turned OFF automatically at 17:00. However this Wednesday around 19:00 - 22:00 an exclusive presentation is held in room number 5 on 1. floor.
+To save energy the university wants to have the heating turned OFF automatically at 17:00. However this Wednesday around 19:00 - 22:00 an exclusive presentation is held in room number 10 on 1st floor.
 You are asked to maintain a temperature at 21 degrees in that room throughout the presentation.
 \end{framed}
 
 \begin{framed}
-It is summertime and the overall temperature inside the building is rising. You are asked to keep the temperature at maximum 22 in all of the rooms in the building.
+It is summertime and the overall temperature inside the building is rising. You are asked to keep the temperature at a maximum of 22 degrees in all the rooms of the building.
 \end{framed}
 
 \begin{framed}
-All afternoon between 12:00 and 16:00 the sun is at its peak. Therefore you are asked to set blinds ON in all the rooms on 1. floor and 2. floor - but only if the lights are ON.
+All afternoon between 12:00 and 16:00 the sun is at its peak. Therefore you are asked to roll down the blinds in all the rooms on 1st floor and 2nd floor - but only if the lights are ON.
 \end{framed}
 
 \begin{framed}
-The university wants to save energy. You are asked to make sure lights are automatic turned OFF at 17:00 in all the rooms, except from those on 0. Floor.
+The university wants to save energy. You are asked to make sure lights are turned OFF at 17:00 in all the rooms, except from those on the ground floor (floor 0).
 \end{framed}
 
 \subsubsection{Results and Comments}
 \label{results-and-comments}
-After every participant had gone through the Think Aloud Test. We went through all their "thoughts" and issues. Some were the same, these we combined into one.
+After every participant had gone through the Think Aloud Test, we went through all their "thoughts" and issues. Some were the same, so we ended in combining these into one.
 For all the remarks, we made some comments as listed below --- including the actions we took to further improve the software.
 
 \begin{quotation}
 If there is a lot of statements - which I would expect there will be? Then I think the statement list would be too long. I think it would make it difficult to keep the overview, if say you have 100 statements.
 \end{quotation}
 
-The participant were referring to the “detail view” of a policy, from which every statement were listed underneath each other. 
+The participant were referring to the “detail view” of a policy, from which every statement was listed underneath each other. 
 
-Due to this remark we have implemented an expand function, which instead of listing all the content at once, it now only shows each statement headline as an open / closable area.
+Due to this remark we have implemented an expand function, which instead of listing all the content at once, it only shows each statement headline as an open / closable area.
  
 \begin{quotation}
-I think it is difficult to see which one (rule) belong to what (expression).
+I think it is difficult to see which one (rule) belongs to what (expression).
 \end{quotation}
 
 The participant were referring to the setup within a given policy. When a policy contains an IfStatement, the list of conditional expressions, and the then-clause and else-clause created some confusion. The participant found that it was difficult to separate the different parts.
@@ -153,6 +153,6 @@ Due to this we implemented the aforementioned color coding \ref{colorcodinglabel
 
 In the second Think Aloud Test with five new persons, the result showed that they found the overview better and easier to understand after implementing this encapsulation and color coding.
 
-After the second round of testing we only had some minor changes to do. But overall the participant where comfortable with the usability and had no further remarks.
+After the second round of testing we only had some minor changes to do. Overall the participants were comfortable with the usability and had no further remarks.
 
-We believe that there is always room for improvement, and we elaborate on this in the section \ref{subsec:improvements}.
+We believe that there is always room for improvement, and we elaborate on this in section \ref{subsec:improvements}.
