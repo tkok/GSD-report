@@ -1,4 +1,4 @@
-\subsection{Future Work \& Improvements}\label{subsec:improvements}
+\section{Future Work \& Improvements}\label{subsec:improvements}
 Though we have tried to make the policy engine as flexible as possible, some issues remain. For example, if we are having a policy that rolls down the blinds during the night, and we want them to roll up when the policy is no longer active (decided by the toTime property), it is not possible at the moment --- when just using a single policy. We can of course create a new policy that rolls up the blinds at a certain time in the morning.
 
 As explained earlier, our expression language should be improved to allow multiple expressions with the choice of OR as opposed to the current AND-only functionality. With the GPL's\footnote{General Purpose Language} on the market today, people expect to be able to make complex conditions --- even though the users of the system are not IT experts. The aforementioned nested statements should also be a possibility to create within the GUI. While we have taken the preliminary steps for this we did not have time to fully implement it.
