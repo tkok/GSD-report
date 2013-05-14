@@ -54,7 +54,7 @@ We have decided to store our policies in a database as we think it is better to 
 \\Methods for communicating with the database are defined in the DataAccessLayer class. These are the methods for creating, reading, updating and deleting policies. In addition, it is of great interest to have a method that returns only the policies that are running at the current time and are active. 
 \\Different policies may operate on the same sensors, so we decided to use a cache to store each sensor's value. This reduces the number of queries to the building server so it does not overload it. This cache is implemented using a hashtable and stores the value of the sensor. After executing all the active policies at that moment, this cache is cleared. 
 
-\section{Building querying}
+\section{Building Querying}
 To communicate with the building's server, we created the Connection class which provides methods for connecting to it and parses the JSON object received. There are several methods implemented that parse the response of the server and offer information such as: a list with the sensors in a room by providing the room id, a list with all the sensors of a certain type (e.g. AC, light, heater etc.) The two most important methods are for retrieving the sensor's value and setting it to a specific one. 
 
 \begin{figure}
@@ -67,7 +67,7 @@ To communicate with the building's server, we created the Connection class which
 To retrieve a sensor's value we use the GetSensorValue method which takes the sensor id as an argument and returns a string with the value. By default the values are sorted by timestamp, and the most recent value is returned.
 \\We use the method SetSensorValue to set a value, which takes the sensor's id as parameter and the value we want to set. 
 
-\section{Executing policies} 
+\section{Executing Policies} 
 The system executes the active policies at a specific time interval. This execution has the following flow (see fig. \ref{fig:policy_execution_workflow}):
 First, a list with the active policies at that time is retrieved. Then the statements that compose the policy are retrieved along with their expressions. In these expressions resides the sensor id on which operations will occur next. For each sensor it is retrieved its last value from the building server and stored in the cache. After storing all the values of the sensors, the statements are executed. 
 \\The first statements that are executed are the IfStatements. Here a check is done to see if the policy is a wildcard. If it is a wildcard, then the statements are executed for each sensor by evaluating its value against the desired value. If the evaluation returns false, then the else statements are executed. If the policy is not a wildcard, an evaluation of the sensor's value is done and depending on its result, the thenStatementes or elseStatements are executed. 
