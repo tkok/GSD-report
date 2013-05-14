@@ -43,7 +43,7 @@ The result was that our IF-THEN-ELSE concept implementation performed as expecte
 \section{Usability Test}\label{sec:usability-test}
 By using the Think Aloud Protocol we tested to uncover potential usability issues that needed solving.
 
-To evaluate on the usability of our policy engine we decided to make a test with candidates outside of our development group. In general, when it come to "best practices of usability tests", the Think Aloud Protocol is considered one of the most valuable \cite{Nielsen1993}.
+To evaluate on the usability of our policy engine we decided to make a test with participants outside of our development group. In general, when it comes to "best practices of usability tests", the Think Aloud Protocol is considered one of the most valuable \cite{Nielsen1993}.
 
 The Think Aloud Protocol is time wise inexpensive and easy to set up and it also gives very valuable result from real-life scenarios.
 
@@ -53,9 +53,9 @@ In a Think Aloud Test, you ask test participants (one at a time) to use the syst
 To run a basic Think Aloud usability study, three things are required:
 
 \begin{itemize}
-\item Recruit representative users.
+\item Recruit representative participants.
 \item Inform them of representative tasks to perform.
-\item Avoid interference and let the users speak their actions.
+\item Avoid interference and let the participants speak their actions.
 \end{itemize}
 
 We invited five people to a think aloud test. Research shows that having just five people will potentially uncover 80\% of all usability problems \cite{jakobnielsen2000fiveusers} as seen on \ref{fig:usabilitycurve}.
@@ -72,65 +72,63 @@ We conducted two Think Aloud Tests, these tests were aimed at fixing any usabili
 We have not directly targeted Facility Managers in our usability tests, as we simply did not have the time to gather enough test persons with a relevant job function. However instead we gathered a broad range of random test persons with different backgrounds and age.
 
 \subsubsection{Tasks}
-We arranged 7 tasks for the test persons to perform. Note however that the tests where held individually, but they were all given the same set of tasks. 
-During the tests, candidates where only given one task at a time to focus on - using small task cards.
+We arranged 10 tasks for the participants to perform. Note however that the tests where held individually, but they were all given the same set of tasks. 
+During the tests, participants where only given one task at a time to focus on - using small task cards.
 
 Before the test started we explained the purpose of the policy engine, and verbally gave them an example of a user scenario.
 
-We briefly introduced the participant to a map of the building and the rooms involved. We also gave an example list of sensor and actuator names to make them familiar with the elements involved, including basic knowledge of IF, AND, THEN statements and wildcard operators. The questions were designed so that the test persons used all of the features available in the policy engine. The user interface contain an \textit{live auto complete function} so that the user can easily set a desired sensor/actuator without knowing the exact name. See section \ref{managing-policies} for more details.
+We briefly introduced the participant to a map of the building and the rooms involved. We also gave an example list of sensor and actuator names to make them familiar with the elements involved, including basic knowledge of IF, AND, THEN statements and wildcard operators. The questions were designed so that the test persons used all of the features available in the policy engine. The user interface contain an \textit{live auto-complete function} so that the participant can easily set a desired sensor/actuator without knowing the exact name. See section \ref{managing-policies} for more details.
 
-The candidates where assigned the following tasks:
+The participants where assigned the following tasks:
 
 \begin{framed}
 Create a policy that turns the AC on in Room 1, 1. floor and name it "Cooling".
 \end{framed}
-The first task was designed to see how the user would try to create new policies - and how they would set the name.
+The 1st task was designed to see how the participant would try to create new policies - and how they would set the name.
 
 \begin{framed}
 Modify the "Cooling" policy just created to affect both Room 1, 1. floor and Room 2, 2. floor.
 \end{framed}
-The second task was designed to see how the user handled modifying an existing policy.
+The 2nd task was designed to see how the participant handled modifying an existing policy.
 
 \begin{framed}
 Create a policy that turns on blinds in all rooms for every floor in the building and name the policy "Sun".
 \end{framed}
-The third task was designed to see how the user handled the "wildcard" feature.
+The 3rd task was designed to see how the participant handled the "wildcard" auto-complete feature.
 
 \begin{framed}
 Find and show the active policies just created.
 \end{framed}
-This fourth task showed how well the user handled the listing of active policies --- as this would likely be a typical reoccurring task for a building administrator.
+This 4th task showed how well the participant handled the listing of active policies --- as this would likely be a typical reoccurring task for a building administrator.
 
 \begin{framed}
 Disable the policy named "Cooling" so that it is no longer in function.
 \end{framed}
-The fifth task showed how well the user handled enabling/disabling of a policy.
+The 5th task showed how well the participant handled enabling/disabling of a policy.
 
 \begin{framed}
 Delete the policy named "Sun".
 \end{framed}
-The sixth task showed the removal of policies.
+The 6th task showed the removal of policies.
+
+The tasks 7-10 were designed to be harder and the participant was forced to work with complex expressions.
 
 \begin{framed}
 To save energy the university wants to have the heating turned OFF automatically at 17:00. However this Wednesday around 19:00 - 22:00 an exclusive presentation is held in room number 5 on 1. floor.
 You are asked to maintain a temperature at 21 degrees in that room throughout the presentation.
 \end{framed}
-The seventh task was designed to be more complex and the user was forced to work with expressions (AND) and operators such as larger than (\textgreater).
 
 \begin{framed}
 It is summertime and the overall temperature inside the building is rising. You are asked to keep the temperature at maximum 22 in all of the rooms in the building.
 \end{framed}
-% XXX --> The eight task was designed to be 
 
 \begin{framed}
 All afternoon between 12:00 and 16:00 the sun is at its peak. Therefore you are asked to set blinds ON in all the rooms on 1. floor and 2. floor - but only if the lights are ON.
 \end{framed}
-% XXX --> No description
 
 \begin{framed}
 The university wants to save energy. You are asked to make sure lights are automatic turned OFF at 17:00 in all the rooms, except from those on 0. Floor.
 \end{framed}
-% XXX --> No description
 
 \subsubsection{Results and Comments}
 \label{results-and-comments}
@@ -141,7 +139,7 @@ For all the remarks, we made some comments as listed below --- including the act
 If there is a lot of statements - which I would expect there will be? Then I think the statement list would be too long. I think it would make it difficult to keep the overview, if say you have 100 statements.
 \end{quotation}
 
-The user were referring to the “Detail view” of a policy, from which every statement are listed underneath each other. 
+The participant were referring to the “detail view” of a policy, from which every statement were listed underneath each other. 
 
 Due to this remark we have implemented an expand function, which instead of listing all the content at once, it now only shows each statement headline as an open / closable area.
  
@@ -149,7 +147,7 @@ Due to this remark we have implemented an expand function, which instead of list
 I think it is difficult to see which one (rule) belong to what (expression).
 \end{quotation}
 
-The user were referring to the setup within a given policy. When a policy contains an IfStatement, the list of conditional expressions, and the then-clause and else-clause created some confusion. The user found that it was difficult to separate the different parts.
+The participant were referring to the setup within a given policy. When a policy contains an IfStatement, the list of conditional expressions, and the then-clause and else-clause created some confusion. The participant found that it was difficult to separate the different parts.
 
 Due to this we implemented the aforementioned color coding \ref{colorcodinglabel}.
 
