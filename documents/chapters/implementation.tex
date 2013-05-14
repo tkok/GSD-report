@@ -2,7 +2,7 @@ This chapter is dedicated to the implementation of the presented system. In this
 
 \section{System}
 The system has been implemented using Java and Servlets for the back-end, and JSP and JavaScript for displaying the webpages in the front-end. We have chosen to use MySQL as a database since it is known to all the members. The database is used to store the policy entities (the policy entity is explained in subsection \ref{s:Domain}). There is also a logging subsystem that is used to create logs about the system and its execution. This has been implemented using the log4j library and it creates a log file which contains all the logged data. 
-\\The back-end deals with requests from the front-end and executes at a specific time interval, the active policies at that time. The front-end displays the policies and enables the creation, modification or deletion of policies. However, because we have chosen to serialize the policies to JSON, these policies have to be deserialised and parsed to be displayed properly in the front-end. 
+\\The back-end deals with requests from the front-end and executes at a specific time interval, the active policies at that time. The front-end displays the policies and enables the creation, modification or deletion of policies. However, because we have chosen to serialize the policies to JSON, these policies have to be de-serialized and parsed to be displayed properly in the front-end. 
 
 A serialized policy to JSON has the following structure (see Figure \ref{fig:json_policy})
 
@@ -29,7 +29,8 @@ There are two interfaces that describe the methods of Statements and Value class
 	\label{fig:ecore-sensors-actuators}
 \end{figure}
 
-A statement can either be a SetStatement or an IfStatement. The SetStatement sets an value in the building server (in effect it is an actuator). It is possible to have nested IfStatements, making the policies both flexible and simple. An IfStatement can contain multiple expressions that all are being ``\textit{and}ed'' when evaluated. If the user wants to make an IfStatement with or between the expressions, one will have to use a nested IF. The optimal solution to this would be to make a safe left-recursive model. We did not have enough time for this, but we will elaborate further on this subject in the \nameref{chapter:discussion} section. 
+A statement can either be a SetStatement or an IfStatement. The SetStatement sets an value in the building server (in effect it is an actuator). It is possible to have nested IfStatements, making the policies both flexible and simple. An IfStatement can contain multiple expressions that all are being ``\textit{and}ed'' when evaluated. If the user wants to make an IfStatement with or between the expressions, one will have to use a nested IF.
+ 
 Using the example from \ref{fig:json_policy}, the IF-THEN-ELSE concept functions as shown in Figure \ref{fig:if-then-else_example}.
 \begin{figure}
 	\centering
